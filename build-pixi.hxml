@@ -1,0 +1,10 @@
+-js bin/Main.js
+-main Main
+-cp src
+-D pixi
+-lib pixijs
+-lib actuate
+-debug
+
+#-dce full
+#-lib closure

@@ -1,0 +1,7 @@
+-starling.core.Starling.context
+-starling.core.Starling.frameID
+-starling.core.Starling.juggler
+-starling.core.Starling.contentScaleFactor
+-starling.core.Starling.painter
+-starling.display.MeshBatch.numIndices
+-starling.display.MeshBatch.numVertices
