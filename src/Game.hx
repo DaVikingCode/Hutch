@@ -19,8 +19,10 @@ class Game extends Sprite {
 			touchable = true;
 		#end
 
-		//var text = new TextField("Welcome to Hutch :)");
-		//addChild(text);
+		var text = new TextField("Welcome to Hutch :)", "Arial", 24, 0xFF0000);
+		addChild(text);
+
+		text.y = 150;
 
 		var assetManager:AssetManager = new AssetManager();
 		assetManager.add("bunny.png");
@@ -49,7 +51,7 @@ class Game extends Sprite {
 
 			Actuate.tween(bird, 1, {alpha:0.2}).repeat().reflect();
 
-        	Actuate.tween(bunny, 1, {alpha:0.3, x:150});
+        	Actuate.tween(bunny, 1, {alpha:0.3, x:205});
 		});
 	}
 
