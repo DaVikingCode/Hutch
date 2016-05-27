@@ -2,8 +2,9 @@
 -main Main
 -cp src
 -D pixi
--lib pixijs
 -lib actuate
+-lib ash
+-lib pixijs
 -debug
 
 #-dce full

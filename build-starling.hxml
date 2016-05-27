@@ -3,6 +3,7 @@
 -cp src
 -swf-lib starling.swc
 -lib actuate
+-lib ash
 --macro "patchTypes('starling.patch')"
 -D starling
 -swf-header 800:600:60:003366

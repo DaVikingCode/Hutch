@@ -15,6 +15,10 @@ class Game extends Sprite {
 	public function new() {
 		super();
 
+		#if starling
+			touchable = true;
+		#end
+
 		//var text = new TextField("Welcome to Hutch :)");
 		//addChild(text);
 
@@ -30,11 +34,20 @@ class Game extends Sprite {
 			bunny.y = 50;
 			addChild(bunny);
 
-			var starling = new Image(assetManager.getTexture("starling.png"));
-			starling.x = starling.y = 300;
-			addChild(starling);
+			var bird = new Image(assetManager.getTexture("starling.png"));
+			bird.x = bird.y = 300;
+			addChild(bird);
 
-			getChildAt(1).alpha = 0.2;
+			bird.buttonMode = true;
+			bird.touchable = true;
+
+			bird.addTouchBeganListener();
+			bird.onTouchBegan.add(function() {
+
+				bird.scaleX = bird.scaleY += 0.1;
+			});
+
+			Actuate.tween(bird, 1, {alpha:0.2}).repeat().reflect();
 
         	Actuate.tween(bunny, 1, {alpha:0.3, x:150});
 		});
