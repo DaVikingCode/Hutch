@@ -1,10 +1,11 @@
 package;
 
-import hutch.utils.AssetManager;
-import hutch.display.Sprite;
 import hutch.display.Image;
-import hutch.textures.Texture;
+import hutch.display.MovieClip;
+import hutch.display.Sprite;
 import hutch.text.TextField;
+import hutch.textures.Texture;
+import hutch.utils.AssetManager;
 
 import motion.Actuate;
 
@@ -27,6 +28,14 @@ class Game extends Sprite {
 		var assetManager:AssetManager = new AssetManager();
 		assetManager.add("bunny.png");
 		assetManager.add("starling.png");
+
+		#if starling
+			assetManager.add("explosion_starling.png");
+			assetManager.add("explosion_starling.xml");
+		#elseif pixi
+			assetManager.add("explosion_pixi.json");
+		#end
+
 		assetManager.load(function() {
 
 			bunny = new Image(assetManager.getTexture("bunny.png"));
@@ -48,6 +57,26 @@ class Game extends Sprite {
 
 				bird.scaleX = bird.scaleY += 0.1;
 			});
+
+			var mc:MovieClip;
+
+			#if starling
+
+				var frames = assetManager.getTextures("explosion_");
+
+			#elseif pixi
+
+				var frames = [];
+
+				for (i in 0 ... 26)
+					frames.push(pixi.core.textures.Texture.fromFrame("explosion_" + (i + 1) + ".png"));
+			#end
+
+			mc = new MovieClip(frames);
+			mc.x = 400;
+			addChild(mc);
+
+			mc.play();
 
 			Actuate.tween(bird, 1, {alpha:0.2}).repeat().reflect();
 

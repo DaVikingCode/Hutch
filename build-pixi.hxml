@@ -1,5 +1,6 @@
 -js bin/Main.js
 -main Main
+-cp demo
 -cp src
 -D pixi
 -lib actuate

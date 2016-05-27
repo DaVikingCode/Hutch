@@ -27,7 +27,7 @@ class AssetManager {
 					onComplete();
 			});
 		#elseif pixi
-			proxy.load(onComplete());
+			proxy.load(onComplete);
 		#end
 	}
 
@@ -39,5 +39,13 @@ class AssetManager {
 			return pixi.core.textures.Texture.fromImage(url);
 		#end
 	}
+
+	#if starling
+	
+		public function getTextures(prefix:String) {
+
+			return proxy.getTextures(prefix);
+		}
+	#end
 
 }

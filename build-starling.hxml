@@ -1,5 +1,6 @@
 -swf bin/Main.swf
 -main Main
+-cp demo
 -cp src
 -swf-lib starling.swc
 -lib actuate
