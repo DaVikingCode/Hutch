@@ -39,13 +39,30 @@ class AssetManager {
 			return pixi.core.textures.Texture.fromImage(url);
 		#end
 	}
-
-	#if starling
 	
-		public function getTextures(prefix:String) {
+	public function getTextures(prefix:String) {
 
+		#if starling
 			return proxy.getTextures(prefix);
-		}
-	#end
+
+		#elseif pixi
+
+			var out = [];
+
+			untyped __js__('for (var name in PIXI.utils.TextureCache)
+				if (name.indexOf("explosion_") == 0)
+					out[out.length] = name;
+
+			out.sort(naturalCompare);');
+
+			var frames = [];
+
+			for (i in 0...out.length)
+				frames[frames.length] = untyped __js__('PIXI.utils.TextureCache[out[i]]');
+
+			return frames;
+
+		#end
+	}
 
 }

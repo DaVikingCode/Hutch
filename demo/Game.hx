@@ -58,21 +58,7 @@ class Game extends Sprite {
 				bird.scaleX = bird.scaleY += 0.1;
 			});
 
-			var mc:MovieClip;
-
-			#if starling
-
-				var frames = assetManager.getTextures("explosion_");
-
-			#elseif pixi
-
-				var frames = [];
-
-				for (i in 0 ... 26)
-					frames.push(pixi.core.textures.Texture.fromFrame("explosion_" + (i + 1) + ".png"));
-			#end
-
-			mc = new MovieClip(frames);
+			var mc = new MovieClip(assetManager.getTextures("explosion_"));
 			mc.x = 400;
 			addChild(mc);
 
