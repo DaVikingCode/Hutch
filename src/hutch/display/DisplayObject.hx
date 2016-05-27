@@ -21,6 +21,12 @@ class DisplayObject {
 	var _height:Float;
 	public var height(get, set):Float;
 
+	var _pivotX:Float = 0;
+	public var pivotX(get, set):Float;
+
+	var _pivotY:Float = 0;
+	public var pivotY(get, set):Float;
+
 	var _rotation:Float = 0;
 	public var rotation(get, set):Float;
 
@@ -125,6 +131,42 @@ class DisplayObject {
 	function set_height(value:Float) {
 
 		return _height = proxy.height = value;
+	}
+
+	function get_pivotX():Float {
+
+		return _pivotX;
+	}
+
+	function set_pivotX(value:Float) {
+
+		_pivotX = value;
+
+		#if starling
+			proxy.pivotX = value;
+		#elseif pixi
+			proxy.pivot.x = value;
+		#end
+
+		return _pivotX;
+	}
+
+	function get_pivotY():Float {
+
+		return _pivotY;
+	}
+
+	function set_pivotY(value:Float) {
+
+		_pivotY = value;
+
+		#if starling
+			proxy.pivotY = value;
+		#elseif pixi
+			proxy.pivot.y = value;
+		#end
+
+		return _pivotY;
 	}
 
 	function get_rotation():Float {

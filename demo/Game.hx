@@ -39,8 +39,8 @@ class Game extends Sprite {
 		assetManager.load(function() {
 
 			bunny = new Image(assetManager.getTexture("bunny.png"));
-			bunny.anchorX = 0.5;
-			bunny.anchorY = 0.5;
+			bunny.pivotX = bunny.width / 2;
+			bunny.pivotY = bunny.height / 2;
 
 			bunny.y = 50;
 			addChild(bunny);
