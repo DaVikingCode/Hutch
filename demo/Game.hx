@@ -25,7 +25,7 @@ class Game extends Sprite {
 
 		text.y = 150;
 
-		var assetManager:AssetManager = new AssetManager();
+		var assetManager = new AssetManager();
 		assetManager.add("bunny.png");
 		assetManager.add("starling.png");
 
