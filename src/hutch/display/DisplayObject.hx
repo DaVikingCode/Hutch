@@ -10,11 +10,17 @@ class DisplayObject {
 	var _alpha:Float = 1;
 	public var alpha(get, set):Float;
 
+	var _height:Float;
+	public var height(get, set):Float;
+
 	var _rotation:Float = 0;
 	public var rotation(get, set):Float;
 
 	var _visible:Bool = true;
 	public var visible(get, set):Bool;
+
+	var _width:Float;
+	public var width(get, set):Float;
 
 	var _x:Float = 0;
 	public var x(get, set):Float;
@@ -42,6 +48,16 @@ class DisplayObject {
 		return _alpha = proxy.alpha = value;
 	}
 
+	function get_height():Float {
+
+		return _height = proxy.height;
+	}
+
+	function set_height(value:Float) {
+
+		return _height = proxy.height = value;
+	}
+
 	function get_rotation():Float {
 
 		return _rotation;
@@ -60,6 +76,16 @@ class DisplayObject {
 	function set_visible(value:Bool) {
 
 		return _visible = proxy.visible = value;
+	}
+
+	function get_width():Float {
+
+		return _width = proxy.width;
+	}
+
+	function set_width(value:Float) {
+
+		return _width = proxy.width = value;
 	}
 
 	function get_x():Float {

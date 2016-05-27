@@ -7,50 +7,46 @@ import js.Browser;
 import pixi.core.display.Container;
 import pixi.core.renderers.SystemRenderer;
 import pixi.core.renderers.Detector;
+import pixi.plugins.app.Application;
 #end
 
-class Renderer #if starling extends flash.display.Sprite #end {
+class Renderer extends #if starling AStarling #elseif pixi Application #end {
 
-	#if pixi
-		var _stage:Container;
-		var _renderer:SystemRenderer;
-	#end
+	var _game:Game;
 	
 	public function new() {
-
-		#if starling
 		super();
-		#end
-		
-		#if starling
-			var renderer = new Starling(starling.display.Sprite, flash.Lib.current.stage);
-			renderer.start();
 
-			renderer.addEventListener(starling.events.Event.ROOT_CREATED, function(evt:starling.events.Event) {trace('okok');
+		onUpdate = _onUpdate;
 
-				cast(renderer.root, starling.display.Sprite).addChild(new Game().proxy);
-		});
+		#if pixi
 
-		#elseif pixi
+	        backgroundColor = 0x003366;
+	        autoResize = false;
+	        width = 800;
+	        height = 600;
 
-			var options:RenderingOptions = {};
-	        options.backgroundColor = 0x003366;
-	        options.resolution = 1;
+	        super.start();
 
-			_stage = new Container();
-			_renderer = Detector.autoDetectRenderer(800, 600, options);
+			_game = new Game();
 
-			_stage.addChild(new Game().proxy);
-
-			Browser.document.body.appendChild(_renderer.view);
-        	Browser.window.requestAnimationFrame(cast _animate);
+			stage.addChild(_game.proxy);
 		#end
 	}
 
-	#if pixi
-	function _animate() {
-        Browser.window.requestAnimationFrame(cast _animate);
-        _renderer.render(_stage);
-    }
+	#if starling
+		override function _starlingRootCreated(evt:starling.events.Event) {
+			super._starlingRootCreated(evt);
+
+			_game = new Game();
+
+			cast(renderer.root, starling.display.Sprite).addChild(_game.proxy);
+		}
     #end
+
+    function _onUpdate(elapsedTime:Float) {
+
+    	if (_game != null)
+    		_game.onUpdate(elapsedTime);
+    }
 }
