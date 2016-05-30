@@ -22,12 +22,15 @@ class AssetManager {
 
 		#if starling
 			proxy.loadQueue(function(ratio:Float) {
-
-				if (ratio == 1)
-					onComplete();
+				onComplete(ratio * 100);
 			});
 		#elseif pixi
-			proxy.load(onComplete);
+			proxy.on('progress', function() {
+				onComplete(proxy.progress);
+			});
+			proxy.load(function() {
+				onComplete(proxy.progress);
+			});
 		#end
 	}
 

@@ -29,9 +29,10 @@ class Main extends Renderer {
 			assetManager.add("explosion_pixi.json");
 		#end
 
-		assetManager.load(function() {
+		assetManager.load(function(percent:Float) {
 
-			scene = new Game();
+			if (percent == 100)
+				scene = new Game();
 		});
     }
 }
