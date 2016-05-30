@@ -56,7 +56,6 @@ class Renderer extends #if starling AStarling #elseif pixi Application #end {
 
     }
 
-
     function _onUpdate(elapsedTime:Float) {
 
     	if (_newScene != null) {

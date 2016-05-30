@@ -1,10 +1,13 @@
 package hutch.core;
 
 import hutch.display.Sprite;
+import hutch.display.Stage;
 
 class Scene extends Sprite {
 
 	var _renderer:Renderer;
+
+	var _stage(default, null):Stage;
 
 	public function new() {
 		super();
@@ -14,6 +17,8 @@ class Scene extends Sprite {
 		#if starling
 			touchable = true;
 		#end
+
+		_stage = Stage.instance;
 	}
 
 	public function initialize() {
