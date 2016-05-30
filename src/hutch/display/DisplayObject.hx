@@ -15,9 +15,6 @@ class DisplayObject {
 	var _alpha:Float = 1;
 	public var alpha(get, set):Float;
 
-	var _buttonMode:Bool = false;
-	public var buttonMode(get, set):Bool;
-
 	var _height:Float;
 	public var height(get, set):Float;
 
@@ -38,6 +35,9 @@ class DisplayObject {
 
 	var _touchable:Bool = false;
 	public var touchable(get, set):Bool;
+
+	var _useHandCursor:Bool = false;
+	public var useHandCursor(get, set):Bool;
 
 	var _visible:Bool = true;
 	public var visible(get, set):Bool;
@@ -103,24 +103,6 @@ class DisplayObject {
 	function set_alpha(value:Float) {
 
 		return _alpha = proxy.alpha = value;
-	}
-
-	function get_buttonMode():Bool {
-
-		return _buttonMode;
-	}
-
-	function set_buttonMode(value:Bool) {
-
-		_buttonMode = value;
-
-		#if starling
-			proxy.useHandCursor = value;
-		#elseif pixi
-			proxy.buttonMode = value;
-		#end
-
-		return _buttonMode;
 	}
 
 	function get_height():Float {
@@ -231,6 +213,24 @@ class DisplayObject {
 		#end
 
 		return _touchable;
+	}
+
+	function get_useHandCursor():Bool {
+
+		return _useHandCursor;
+	}
+
+	function set_useHandCursor(value:Bool) {
+
+		_useHandCursor = value;
+
+		#if starling
+			proxy.useHandCursor = value;
+		#elseif pixi
+			proxy.buttonMode = value;
+		#end
+
+		return _useHandCursor;
 	}
 
 	function get_visible():Bool {

@@ -47,18 +47,20 @@ class AssetManager {
 
 		#elseif pixi
 
+			var cache = pixi.core.utils.Utils.TextureCache;
+
 			var out = [];
 
-			untyped __js__('for (var name in PIXI.utils.TextureCache)
-				if (name.indexOf("explosion_") == 0)
+			for (name in Reflect.fields(cache))
+				if (name.indexOf(prefix) == 0)
 					out[out.length] = name;
 
-			out.sort(naturalCompare);');
+			untyped __js__('out.sort(naturalCompare);');
 
 			var frames = [];
 
 			for (i in 0...out.length)
-				frames[frames.length] = untyped __js__('PIXI.utils.TextureCache[out[i]]');
+				frames[frames.length] = Reflect.field(cache, out[i]);
 
 			return frames;
 

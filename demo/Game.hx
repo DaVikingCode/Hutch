@@ -49,7 +49,7 @@ class Game extends Sprite {
 			bird.x = bird.y = 300;
 			addChild(bird);
 
-			bird.buttonMode = true;
+			bird.useHandCursor = true;
 			bird.touchable = true;
 
 			bird.addTouchBeganListener();
