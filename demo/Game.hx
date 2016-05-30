@@ -44,7 +44,7 @@ class Game extends Scene {
 			bird.scaleX = bird.scaleY += 0.1;
 		});
 
-		var mc = new MovieClip(Main.assetManager.getTextures("explosion_"));
+		var mc = new MovieClip(Main.assetManager.getTextures("explosion_"), 30);
 		mc.x = 400;
 		addChild(mc);
 

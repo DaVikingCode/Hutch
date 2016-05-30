@@ -58,8 +58,6 @@ class AssetManager {
 				if (name.indexOf(prefix) == 0)
 					out[out.length] = name;
 
-			untyped __js__('out.sort(naturalCompare);');
-
 			var frames = [];
 
 			for (i in 0...out.length)

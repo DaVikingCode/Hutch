@@ -194,7 +194,15 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">explosion/explosion_1.png</key>
+            <key type="filename">explosion/explosion_01.png</key>
+            <key type="filename">explosion/explosion_02.png</key>
+            <key type="filename">explosion/explosion_03.png</key>
+            <key type="filename">explosion/explosion_04.png</key>
+            <key type="filename">explosion/explosion_05.png</key>
+            <key type="filename">explosion/explosion_06.png</key>
+            <key type="filename">explosion/explosion_07.png</key>
+            <key type="filename">explosion/explosion_08.png</key>
+            <key type="filename">explosion/explosion_09.png</key>
             <key type="filename">explosion/explosion_10.png</key>
             <key type="filename">explosion/explosion_11.png</key>
             <key type="filename">explosion/explosion_12.png</key>
@@ -205,7 +213,6 @@
             <key type="filename">explosion/explosion_17.png</key>
             <key type="filename">explosion/explosion_18.png</key>
             <key type="filename">explosion/explosion_19.png</key>
-            <key type="filename">explosion/explosion_2.png</key>
             <key type="filename">explosion/explosion_20.png</key>
             <key type="filename">explosion/explosion_21.png</key>
             <key type="filename">explosion/explosion_22.png</key>
@@ -214,13 +221,6 @@
             <key type="filename">explosion/explosion_25.png</key>
             <key type="filename">explosion/explosion_26.png</key>
             <key type="filename">explosion/explosion_27.png</key>
-            <key type="filename">explosion/explosion_3.png</key>
-            <key type="filename">explosion/explosion_4.png</key>
-            <key type="filename">explosion/explosion_5.png</key>
-            <key type="filename">explosion/explosion_6.png</key>
-            <key type="filename">explosion/explosion_7.png</key>
-            <key type="filename">explosion/explosion_8.png</key>
-            <key type="filename">explosion/explosion_9.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>

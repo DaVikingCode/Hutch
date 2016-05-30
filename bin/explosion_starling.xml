@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:e81f9b2007847f63cf9b3c09c57af004:aaa6f60c39d4c316b8ed9667f27805ca:cf685eb8dd8391735d7995ffc67f7117$ -->
+<!-- $TexturePacker:SmartUpdate:b427baede274bf83c867736cf110e938:8f936ea63af574c493458d5bf9097175:cf685eb8dd8391735d7995ffc67f7117$ -->
 <TextureAtlas imagePath="explosion_starling.png" width="1024" height="2048">
-    <SubTexture name="explosion_1" x="443" y="877" width="206" height="184" frameX="-31" frameY="-37" frameWidth="240" frameHeight="240"/>
-    <SubTexture name="explosion_10" x="244" y="2" rotated="true" width="240" height="223" frameX="-17" frameY="0" frameWidth="240" frameHeight="240"/>
-    <SubTexture name="explosion_11" x="486" y="2" rotated="true" width="240" height="223" frameX="-17" frameY="0" frameWidth="240" frameHeight="240"/>
+    <SubTexture name="explosion_01" x="443" y="877" width="206" height="184" frameX="-31" frameY="-37" frameWidth="240" frameHeight="240"/>
+    <SubTexture name="explosion_02" x="223" y="672" width="219" height="200" frameX="-18" frameY="-21" frameWidth="240" frameHeight="240"/>
+    <SubTexture name="explosion_03" x="2" y="1082" width="210" height="198" frameX="-18" frameY="-21" frameWidth="240" frameHeight="240"/>
+    <SubTexture name="explosion_04" x="444" y="677" width="219" height="198" frameX="-18" frameY="-21" frameWidth="240" frameHeight="240"/>
+    <SubTexture name="explosion_05" x="2" y="228" rotated="true" width="240" height="222" frameX="-18" frameY="0" frameWidth="240" frameHeight="240"/>
+    <SubTexture name="explosion_06" x="486" y="227" rotated="true" width="240" height="222" frameX="-18" frameY="0" frameWidth="240" frameHeight="240"/>
+    <SubTexture name="explosion_07" x="244" y="2" rotated="true" width="240" height="223" frameX="-17" frameY="0" frameWidth="240" frameHeight="240"/>
+    <SubTexture name="explosion_08" x="728" y="227" rotated="true" width="240" height="222" frameX="-18" frameY="0" frameWidth="240" frameHeight="240"/>
+    <SubTexture name="explosion_09" x="486" y="2" rotated="true" width="240" height="223" frameX="-17" frameY="0" frameWidth="240" frameHeight="240"/>
+    <SubTexture name="explosion_10" x="728" y="2" rotated="true" width="240" height="223" frameX="-17" frameY="0" frameWidth="240" frameHeight="240"/>
+    <SubTexture name="explosion_11" x="244" y="227" rotated="true" width="240" height="223" frameX="-17" frameY="0" frameWidth="240" frameHeight="240"/>
     <SubTexture name="explosion_12" x="2" y="2" rotated="true" width="240" height="224" frameX="-16" frameY="0" frameWidth="240" frameHeight="240"/>
     <SubTexture name="explosion_13" x="486" y="451" rotated="true" width="234" height="224" frameX="-16" frameY="0" frameWidth="240" frameHeight="240"/>
     <SubTexture name="explosion_14" x="722" y="451" width="224" height="221" frameX="-16" frameY="0" frameWidth="240" frameHeight="240"/>
@@ -13,7 +21,6 @@
     <SubTexture name="explosion_17" x="722" y="674" width="223" height="221" frameX="-17" frameY="0" frameWidth="240" frameHeight="240"/>
     <SubTexture name="explosion_18" x="2" y="665" rotated="true" width="219" height="211" frameX="-18" frameY="0" frameWidth="240" frameHeight="240"/>
     <SubTexture name="explosion_19" x="2" y="452" rotated="true" width="221" height="211" frameX="-19" frameY="0" frameWidth="240" frameHeight="240"/>
-    <SubTexture name="explosion_2" x="223" y="672" width="219" height="200" frameX="-18" frameY="-21" frameWidth="240" frameHeight="240"/>
     <SubTexture name="explosion_20" x="2" y="878" width="210" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
     <SubTexture name="explosion_21" x="651" y="897" width="202" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
     <SubTexture name="explosion_22" x="443" y="1063" width="202" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
@@ -22,11 +29,4 @@
     <SubTexture name="explosion_25" x="647" y="1101" width="202" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
     <SubTexture name="explosion_26" x="418" y="1267" width="202" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
     <SubTexture name="explosion_27" x="206" y="1295" width="202" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
-    <SubTexture name="explosion_3" x="2" y="1082" width="210" height="198" frameX="-18" frameY="-21" frameWidth="240" frameHeight="240"/>
-    <SubTexture name="explosion_4" x="444" y="677" width="219" height="198" frameX="-18" frameY="-21" frameWidth="240" frameHeight="240"/>
-    <SubTexture name="explosion_5" x="2" y="228" rotated="true" width="240" height="222" frameX="-18" frameY="0" frameWidth="240" frameHeight="240"/>
-    <SubTexture name="explosion_6" x="486" y="227" rotated="true" width="240" height="222" frameX="-18" frameY="0" frameWidth="240" frameHeight="240"/>
-    <SubTexture name="explosion_7" x="728" y="2" rotated="true" width="240" height="223" frameX="-17" frameY="0" frameWidth="240" frameHeight="240"/>
-    <SubTexture name="explosion_8" x="728" y="227" rotated="true" width="240" height="222" frameX="-18" frameY="0" frameWidth="240" frameHeight="240"/>
-    <SubTexture name="explosion_9" x="244" y="227" rotated="true" width="240" height="223" frameX="-17" frameY="0" frameWidth="240" frameHeight="240"/>
 </TextureAtlas>
