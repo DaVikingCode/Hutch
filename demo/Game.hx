@@ -14,6 +14,10 @@ class Game extends Scene {
 	
 	public function new() {
 		super();
+	}
+
+	override public function initialize() {
+		super.initialize();
 
 		var text = new TextField("Welcome to Hutch :)", "Arial", 24, 0xFF0000);
 		addChild(text);

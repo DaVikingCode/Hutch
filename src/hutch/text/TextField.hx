@@ -35,7 +35,7 @@ class TextField extends Sprite {
 
 		#elseif pixi
 
-			proxy = new pixi.core.text.Text(_text, {font:_size + 'px ' + _font, fill:_color, align:'center'});
+			proxy = new pixi.core.text.Text(_text, {font:_size + 'px ' + _font, fill:_color});
 
 		#end
 	}

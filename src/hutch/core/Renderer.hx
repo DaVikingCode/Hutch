@@ -12,6 +12,8 @@ import pixi.plugins.app.Application;
 
 class Renderer extends #if starling AStarling #elseif pixi Application #end {
 
+	static var _instance:Renderer;
+
 	var _scene:Scene;
 	public var scene(get, set):Scene;
 
@@ -19,6 +21,8 @@ class Renderer extends #if starling AStarling #elseif pixi Application #end {
 	
 	public function new() {
 		super();
+
+		_instance = this;
 
 		onUpdate = _onUpdate;
 
@@ -33,6 +37,11 @@ class Renderer extends #if starling AStarling #elseif pixi Application #end {
 
 	        initialize();
 		#end
+	}
+
+	static public function getInstance():Renderer {
+
+		return _instance;
 	}
 
 	#if starling

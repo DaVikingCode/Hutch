@@ -31,8 +31,12 @@ class Main extends Renderer {
 
 		assetManager.load(function(percent:Float) {
 
-			if (percent == 100)
+			if (percent == 100) {
+
 				scene = new Game();
+
+				//scene = new DisplayListOperations();
+			}
 		});
     }
 }
