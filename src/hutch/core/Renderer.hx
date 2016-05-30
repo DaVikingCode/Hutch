@@ -12,7 +12,10 @@ import pixi.plugins.app.Application;
 
 class Renderer extends #if starling AStarling #elseif pixi Application #end {
 
-	var _game:Game;
+	var _scene:Scene;
+	public var scene(get, set):Scene;
+
+	var _newScene:Scene;
 	
 	public function new() {
 		super();
@@ -28,9 +31,7 @@ class Renderer extends #if starling AStarling #elseif pixi Application #end {
 
 	        super.start();
 
-			_game = new Game();
-
-			stage.addChild(_game.proxy);
+	        initialize();
 		#end
 	}
 
@@ -38,15 +39,54 @@ class Renderer extends #if starling AStarling #elseif pixi Application #end {
 		override function _starlingRootCreated(evt:starling.events.Event) {
 			super._starlingRootCreated(evt);
 
-			_game = new Game();
-
-			cast(renderer.root, starling.display.Sprite).addChild(_game.proxy);
+			initialize();
 		}
     #end
 
+    public function initialize() {
+
+    }
+
+
     function _onUpdate(elapsedTime:Float) {
 
-    	if (_game != null)
-    		_game.onUpdate(elapsedTime);
+    	if (_newScene != null) {
+
+    		if (_scene != null) {
+
+    			_scene.destroy();
+    			#if starling
+	    			cast(renderer.root, starling.display.Sprite).removeChild(_scene.proxy);
+	    		#elseif pixi
+	    			stage.removeChild(_scene.proxy);
+	    		#end
+    		}
+
+    		_scene = _newScene;
+    		_newScene = null;
+
+    		#if starling
+    			cast(renderer.root, starling.display.Sprite).addChild(_scene.proxy);
+    		#elseif pixi
+    			stage.addChild(_scene.proxy);
+    		#end
+    		_scene.initialize();
+    	}
+
+    	if (_scene != null)
+    		_scene.update(elapsedTime);
     }
+
+    function get_scene():Scene {
+		
+		if (_newScene != null)
+			return _newScene;
+		else
+			return _scene;
+	}
+
+	function set_scene(value:Scene):Scene {
+		
+		return _newScene = value;
+	}
 }
