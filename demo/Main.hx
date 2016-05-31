@@ -21,6 +21,8 @@ class Main extends Renderer {
 
     	assetManager.add("bunny.png");
 		assetManager.add("starling.png");
+		assetManager.add("cells.png");
+		assetManager.add("flowerTop.png");
 		assetManager.add("desyrel.fnt");
 
 		#if starling

@@ -23,7 +23,7 @@ class Game extends Scene {
 		text.y = 150;
 		addChild(text);
 
-		var bitmapText = new BitmapTextField("We support bitmap font!", "Desyrel", 30, 0xFFFFFF);
+		var bitmapText = new BitmapTextField("Bitmap font support!", "Desyrel", 30, 0xFFFFFF);
 		addChild(bitmapText);
 
 		bunny = new Image(Main.assetManager.getTexture("bunny.png"));
@@ -52,9 +52,24 @@ class Game extends Scene {
 
 		mc.play();
 
+		//alpha mask is not supported by Starling
+		var cells = new Image(Main.assetManager.getTexture("cells.png"));
+		var mask = new Image(Main.assetManager.getTexture("flowerTop.png"));
+
+		cells.mask = mask;
+
+		cells.y = _stage.height - mask.height;
+
+		#if pixi
+			mask.y = cells.y;
+			addChild(mask);
+		#end
+
+		addChild(cells);
+
 		Actuate.tween(bird, 1, {alpha:0.2}).repeat().reflect();
 
-    	Actuate.tween(bunny, 1, {alpha:0.3, x:205});
+		Actuate.tween(bunny, 1, {alpha:0.3, x:205});
 	}
 
 	override public function update(elapsedTime:Float) {

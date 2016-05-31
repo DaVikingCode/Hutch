@@ -18,6 +18,9 @@ class DisplayObject {
 	var _height:Float;
 	public var height(get, set):Float;
 
+	var _mask:DisplayObject;
+	public var mask(get, set):DisplayObject;
+
 	var _pivotX:Float = 0;
 	public var pivotX(get, set):Float;
 
@@ -113,6 +116,18 @@ class DisplayObject {
 	function set_height(value:Float) {
 
 		return _height = proxy.height = value;
+	}
+
+	function get_mask():DisplayObject {
+
+		return _mask;
+	}
+
+	function set_mask(value:DisplayObject) {
+
+		proxy.mask = value.proxy;
+
+		return _mask = value;
 	}
 
 	function get_pivotX():Float {

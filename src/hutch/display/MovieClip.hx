@@ -24,6 +24,13 @@ class MovieClip extends Image {
 
 			proxy = new starling.display.MovieClip(textures, _fps);
 
+			function _destroy(evt:starling.events.Event) {
+
+				proxy.removeEventListener(starling.events.Event.REMOVED_FROM_STAGE, _destroy);
+				starling.core.Starling.juggler.remove(proxy);
+			}
+
+			proxy.addEventListener(starling.events.Event.REMOVED_FROM_STAGE, _destroy);
 			starling.core.Starling.juggler.add(proxy);
 
 		#elseif pixi
