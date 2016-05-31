@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>4.1.0</string>
         <key>fileName</key>
-        <string>/Users/Aymeric/Documents/Workspace/Haxe/2016/Hutch/assets/explosion_starling.tps</string>
+        <string>/Users/Aymeric/Documents/Workspace/Haxe/2016/Hutch/assets/spritesheet_pixi.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -28,7 +28,7 @@
             </struct>
         </array>
         <key>allowRotation</key>
-        <true/>
+        <false/>
         <key>premultiplyAlpha</key>
         <false/>
         <key>shapeDebug</key>
@@ -36,7 +36,7 @@
         <key>dpi</key>
         <uint>72</uint>
         <key>dataFormat</key>
-        <string>sparrow</string>
+        <string>pixijs</string>
         <key>textureFileName</key>
         <filename></filename>
         <key>flipPVR</key>
@@ -72,7 +72,7 @@
             </struct>
         </struct>
         <key>shapePadding</key>
-        <uint>2</uint>
+        <uint>0</uint>
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
@@ -84,7 +84,7 @@
         <key>textureFormat</key>
         <enum type="SettingsBase::TextureFormat">png</enum>
         <key>borderPadding</key>
-        <uint>2</uint>
+        <uint>0</uint>
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
@@ -147,7 +147,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../bin/explosion_starling.xml</filename>
+                <filename>../bin/spritesheet_pixi.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -176,7 +176,7 @@
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
             <key>extrude</key>
-            <uint>0</uint>
+            <uint>1</uint>
             <key>trimThreshold</key>
             <uint>1</uint>
             <key>trimMargin</key>
@@ -194,33 +194,37 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">explosion/explosion_01.png</key>
-            <key type="filename">explosion/explosion_02.png</key>
-            <key type="filename">explosion/explosion_03.png</key>
-            <key type="filename">explosion/explosion_04.png</key>
-            <key type="filename">explosion/explosion_05.png</key>
-            <key type="filename">explosion/explosion_06.png</key>
-            <key type="filename">explosion/explosion_07.png</key>
-            <key type="filename">explosion/explosion_08.png</key>
-            <key type="filename">explosion/explosion_09.png</key>
-            <key type="filename">explosion/explosion_10.png</key>
-            <key type="filename">explosion/explosion_11.png</key>
-            <key type="filename">explosion/explosion_12.png</key>
-            <key type="filename">explosion/explosion_13.png</key>
-            <key type="filename">explosion/explosion_14.png</key>
-            <key type="filename">explosion/explosion_15.png</key>
-            <key type="filename">explosion/explosion_16.png</key>
-            <key type="filename">explosion/explosion_17.png</key>
-            <key type="filename">explosion/explosion_18.png</key>
-            <key type="filename">explosion/explosion_19.png</key>
-            <key type="filename">explosion/explosion_20.png</key>
-            <key type="filename">explosion/explosion_21.png</key>
-            <key type="filename">explosion/explosion_22.png</key>
-            <key type="filename">explosion/explosion_23.png</key>
-            <key type="filename">explosion/explosion_24.png</key>
-            <key type="filename">explosion/explosion_25.png</key>
-            <key type="filename">explosion/explosion_26.png</key>
-            <key type="filename">explosion/explosion_27.png</key>
+            <key type="filename">spritesheet/eggHead.png</key>
+            <key type="filename">spritesheet/explosion_01.png</key>
+            <key type="filename">spritesheet/explosion_02.png</key>
+            <key type="filename">spritesheet/explosion_03.png</key>
+            <key type="filename">spritesheet/explosion_04.png</key>
+            <key type="filename">spritesheet/explosion_05.png</key>
+            <key type="filename">spritesheet/explosion_06.png</key>
+            <key type="filename">spritesheet/explosion_07.png</key>
+            <key type="filename">spritesheet/explosion_08.png</key>
+            <key type="filename">spritesheet/explosion_09.png</key>
+            <key type="filename">spritesheet/explosion_10.png</key>
+            <key type="filename">spritesheet/explosion_11.png</key>
+            <key type="filename">spritesheet/explosion_12.png</key>
+            <key type="filename">spritesheet/explosion_13.png</key>
+            <key type="filename">spritesheet/explosion_14.png</key>
+            <key type="filename">spritesheet/explosion_15.png</key>
+            <key type="filename">spritesheet/explosion_16.png</key>
+            <key type="filename">spritesheet/explosion_17.png</key>
+            <key type="filename">spritesheet/explosion_18.png</key>
+            <key type="filename">spritesheet/explosion_19.png</key>
+            <key type="filename">spritesheet/explosion_20.png</key>
+            <key type="filename">spritesheet/explosion_21.png</key>
+            <key type="filename">spritesheet/explosion_22.png</key>
+            <key type="filename">spritesheet/explosion_23.png</key>
+            <key type="filename">spritesheet/explosion_24.png</key>
+            <key type="filename">spritesheet/explosion_25.png</key>
+            <key type="filename">spritesheet/explosion_26.png</key>
+            <key type="filename">spritesheet/explosion_27.png</key>
+            <key type="filename">spritesheet/flowerTop.png</key>
+            <key type="filename">spritesheet/helmlok.png</key>
+            <key type="filename">spritesheet/skully.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -228,7 +232,7 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>explosion</filename>
+            <filename>spritesheet</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

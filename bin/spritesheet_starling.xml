@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:b427baede274bf83c867736cf110e938:8f936ea63af574c493458d5bf9097175:cf685eb8dd8391735d7995ffc67f7117$ -->
-<TextureAtlas imagePath="explosion_starling.png" width="1024" height="2048">
+<!-- $TexturePacker:SmartUpdate:454017e7cc259516f105ab8d421ac3b8:da7aa9fcd6914acb90295d408cc6e38f:5b9d0095bd1821605114d7dc065edacf$ -->
+<TextureAtlas imagePath="spritesheet_starling.png" width="1024" height="2048">
+    <SubTexture name="eggHead" x="855" y="1054" rotated="true" width="157" height="142"/>
     <SubTexture name="explosion_01" x="443" y="877" width="206" height="184" frameX="-31" frameY="-37" frameWidth="240" frameHeight="240"/>
     <SubTexture name="explosion_02" x="223" y="672" width="219" height="200" frameX="-18" frameY="-21" frameWidth="240" frameHeight="240"/>
     <SubTexture name="explosion_03" x="2" y="1082" width="210" height="198" frameX="-18" frameY="-21" frameWidth="240" frameHeight="240"/>
@@ -24,9 +25,12 @@
     <SubTexture name="explosion_20" x="2" y="878" width="210" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
     <SubTexture name="explosion_21" x="651" y="897" width="202" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
     <SubTexture name="explosion_22" x="443" y="1063" width="202" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
-    <SubTexture name="explosion_23" x="214" y="1091" width="202" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
-    <SubTexture name="explosion_24" x="2" y="1282" width="202" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
-    <SubTexture name="explosion_25" x="647" y="1101" width="202" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
+    <SubTexture name="explosion_23" x="647" y="1101" width="202" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
+    <SubTexture name="explosion_24" x="214" y="1091" width="202" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
+    <SubTexture name="explosion_25" x="2" y="1282" width="202" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
     <SubTexture name="explosion_26" x="418" y="1267" width="202" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
     <SubTexture name="explosion_27" x="206" y="1295" width="202" height="202" frameX="-19" frameY="-19" frameWidth="240" frameHeight="240"/>
+    <SubTexture name="flowerTop" x="2" y="1486" rotated="true" width="181" height="119"/>
+    <SubTexture name="helmlok" x="851" y="1198" width="123" height="177"/>
+    <SubTexture name="skully" x="855" y="897" rotated="true" width="165" height="155"/>
 </TextureAtlas>

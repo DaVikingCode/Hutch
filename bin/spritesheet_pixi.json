@@ -1,5 +1,13 @@
 {"frames": {
 
+"eggHead.png":
+{
+	"frame": {"x":861,"y":1256,"w":142,"h":157},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":142,"h":157},
+	"sourceSize": {"w":142,"h":157}
+},
 "explosion_01.png":
 {
 	"frame": {"x":1,"y":950,"w":206,"h":184},
@@ -215,14 +223,38 @@
 	"trimmed": true,
 	"spriteSourceSize": {"x":19,"y":19,"w":202,"h":202},
 	"sourceSize": {"w":240,"h":240}
+},
+"flowerTop.png":
+{
+	"frame": {"x":904,"y":1,"w":119,"h":181},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":119,"h":181},
+	"sourceSize": {"w":119,"h":181}
+},
+"helmlok.png":
+{
+	"frame": {"x":897,"y":466,"w":123,"h":177},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":123,"h":177},
+	"sourceSize": {"w":123,"h":177}
+},
+"skully.png":
+{
+	"frame": {"x":861,"y":1089,"w":155,"h":165},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":155,"h":165},
+	"sourceSize": {"w":155,"h":165}
 }},
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker",
 	"version": "1.0",
-	"image": "explosion_pixi.png",
+	"image": "spritesheet_pixi.png",
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:5fe06c2df11a969d4be4373497e980fb:8f936ea63af574c493458d5bf9097175:83276f66903200d2ea15bd606a465b21$"
+	"smartupdate": "$TexturePacker:SmartUpdate:6580630a649c882d8358ab4fde9f74a0:da7aa9fcd6914acb90295d408cc6e38f:42de4a659e51a95a769f0b1447d038a4$"
 }
 }

@@ -54,9 +54,11 @@ class Game extends Scene {
 
 		//alpha mask is not supported by Starling
 		var cells = new Image(Main.assetManager.getTexture("cells.png"));
-		var mask = new Image(Main.assetManager.getTexture("flowerTop.png"));
+		var mask = new Image(Main.assetManager.getTexture("moby.png"));
 
 		cells.mask = mask;
+
+		mask.scaleX = mask.scaleY = 0.5;
 
 		cells.y = _stage.height - mask.height;
 
