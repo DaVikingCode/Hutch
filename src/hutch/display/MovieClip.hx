@@ -24,13 +24,6 @@ class MovieClip extends Image {
 
 			proxy = new starling.display.MovieClip(textures, _fps);
 
-			function _destroy(evt:starling.events.Event) {
-
-				proxy.removeEventListener(starling.events.Event.REMOVED_FROM_STAGE, _destroy);
-				starling.core.Starling.juggler.remove(proxy);
-			}
-
-			proxy.addEventListener(starling.events.Event.REMOVED_FROM_STAGE, _destroy);
 			starling.core.Starling.juggler.add(proxy);
 
 		#elseif pixi
@@ -41,6 +34,15 @@ class MovieClip extends Image {
 
 		#end
 	}
+
+	#if starling
+		public function dispose(evt:starling.events.Event) {
+
+			starling.core.Starling.juggler.remove(proxy);
+
+			super.dispose(evt);
+		}
+	#end
 
 	public function play() {
 
