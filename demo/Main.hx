@@ -21,10 +21,12 @@ class Main extends Renderer {
 
     	assetManager.add("bunny.png");
 		assetManager.add("starling.png");
+		assetManager.add("desyrel.fnt");
 
 		#if starling
 			assetManager.add("explosion_starling.png");
 			assetManager.add("explosion_starling.xml");
+			assetManager.add("desyrel.png");
 		#elseif pixi
 			assetManager.add("explosion_pixi.json");
 		#end

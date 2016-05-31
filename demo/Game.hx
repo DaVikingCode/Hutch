@@ -3,8 +3,8 @@ package;
 import hutch.core.Scene;
 import hutch.display.Image;
 import hutch.display.MovieClip;
+import hutch.text.BitmapTextField;
 import hutch.text.TextField;
-import hutch.textures.Texture;
 
 import motion.Actuate;
 
@@ -23,6 +23,9 @@ class Game extends Scene {
 		addChild(text);
 
 		text.y = 150;
+
+		var bitmapText = new BitmapTextField("We support bitmap font!", "Desyrel", 30, 0xFFFFFF);
+		addChild(bitmapText);
 
 		bunny = new Image(Main.assetManager.getTexture("bunny.png"));
 		bunny.pivotX = bunny.width / 2;
