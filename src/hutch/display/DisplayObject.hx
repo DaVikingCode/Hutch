@@ -1,12 +1,12 @@
 package hutch.display;
 
-import ash.signals.Signal0;
+import ash.signals.Signal1;
 
 class DisplayObject {
 
 	public var proxy(default, null):Dynamic;
 
-	public var onTouchBegan:Signal0;
+	public var onTouchBegan:Signal1<DisplayObject>;
 
 	// didn't use @:isVar public var alpha(get, set):Float = 1; since Actuate doesn't like it.
 	// didn't use default as getter since Actuate doesn't like it.
@@ -56,7 +56,7 @@ class DisplayObject {
 
 	public function new() {
 
-		onTouchBegan = new Signal0();
+		onTouchBegan = new Signal1<DisplayObject>();
 
 		_initProxy();
 
@@ -86,14 +86,14 @@ class DisplayObject {
 			var began = tEvt.getTouch(proxy, starling.events.TouchPhase.BEGAN);
 
 			if (began != null)
-				onTouchBegan.dispatch();
+				onTouchBegan.dispatch(this);
 		}
 
 	#elseif pixi
 
 		function _pixiOnTouchBegan() {
 
-			onTouchBegan.dispatch();
+			onTouchBegan.dispatch(this);
 		}
 
 	#end

@@ -22,15 +22,15 @@ class Main extends Renderer {
     	assetManager.add("bunny.png");
 		assetManager.add("starling.png");
 		assetManager.add("cells.png");
-		assetManager.add("flowerTop.png");
+		assetManager.add("moby.png");
 		assetManager.add("desyrel.fnt");
 
 		#if starling
-			assetManager.add("explosion_starling.png");
-			assetManager.add("explosion_starling.xml");
+			assetManager.add("spritesheet_starling.png");
+			assetManager.add("spritesheet_starling.xml");
 			assetManager.add("desyrel.png");
 		#elseif pixi
-			assetManager.add("explosion_pixi.json");
+			assetManager.add("spritesheet_pixi.json");
 		#end
 
 		assetManager.load(function(percent:Float) {

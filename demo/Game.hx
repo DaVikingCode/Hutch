@@ -1,6 +1,7 @@
 package;
 
 import hutch.core.Scene;
+import hutch.display.DisplayObject;
 import hutch.display.Image;
 import hutch.display.MovieClip;
 import hutch.text.BitmapTextField;
@@ -41,7 +42,7 @@ class Game extends Scene {
 		bird.touchable = true;
 
 		bird.addTouchBeganListener();
-		bird.onTouchBegan.add(function() {
+		bird.onTouchBegan.add(function(target:DisplayObject) {
 
 			bird.scaleX = bird.scaleY += 0.1;
 		});

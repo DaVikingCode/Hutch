@@ -65,4 +65,23 @@ class Sprite extends DisplayObject {
 
 		children.splice(0, -1);
 	}
+
+	public function setChildIndex(child:DisplayObject, index:Int) {
+
+		proxy.setChildIndex(child.proxy, index);
+
+		children.remove(child);
+		children.insert(index, child);
+	}
+
+	public function swapChildren(child1:DisplayObject, child2:DisplayObject) {
+
+		proxy.swapChildren(child1.proxy, child2.proxy);
+
+		var index1 = getChildIndex(child1);
+		var index2 = getChildIndex(child2);
+
+		children[index1] = child2;
+		children[index2] = child1;
+	}
 }
