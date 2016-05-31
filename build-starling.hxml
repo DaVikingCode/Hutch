@@ -2,11 +2,11 @@
 -main Main
 -cp demo
 -cp src
--swf-lib starling.swc
+-D starling
 -lib actuate
 -lib ash
+-swf-lib starling.swc
 --macro "patchTypes('starling.patch')"
--D starling
 -swf-header 800:600:60:003366
 -swf-version 17
 -debug
