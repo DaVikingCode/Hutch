@@ -10,6 +10,9 @@ class MovieClip extends Image {
 	public var loop(get, set):Bool;
 	public var numFrames(get, null):Int;
 
+	// Be careful, it clones Pixi behavior instead of Starling's one due to Pixi limitation.
+	public var onComplete:Void -> Void;
+
 	public function new(textures:#if starling flash.Vector<starling.textures.Texture #elseif pixi Array<pixi.core.textures.Texture #end>, fps:Float) {
 
 		this.textures = textures;
@@ -26,21 +29,40 @@ class MovieClip extends Image {
 
 			starling.core.Starling.juggler.add(proxy);
 
+			proxy.addEventListener(starling.events.Event.COMPLETE, _complete);
+
 		#elseif pixi
 
 			proxy = new pixi.extras.MovieClip(textures);
-
+			
 			proxy.animationSpeed = _fps;
+
+			proxy.onComplete = function() { onComplete(); };
 
 		#end
 	}
 
 	#if starling
-		public function dispose(evt:starling.events.Event) {
+		override public function dispose(evt:starling.events.Event) {
 
 			starling.core.Starling.juggler.remove(proxy);
 
 			super.dispose(evt);
+		}
+
+		function _complete(evt:starling.events.Event) {
+
+			if (!loop)
+				onComplete();
+		}
+
+	#elseif pixi
+
+		override public function dispose() {
+
+			proxy.onComplete = null;
+
+			super.dispose();
 		}
 	#end
 
