@@ -7,13 +7,37 @@ class BitmapTextField extends TextField {
 		super(text, font, size, color);
 	}
 
-	override function _initProxy() {
+	#if pixi
+		override function _initProxy() {
 
-		#if starling
-			super._initProxy();
+			proxy = new pixi.extras.BitmapText(_text, {font:_size + 'px ' + _font, tint:_color, align:"center"});
+		}
 
-		#elseif pixi
-			proxy = new pixi.extras.BitmapText(_text, {font:_size + 'px ' + _font});
-		#end
-	}
+		override function set_color(value:UInt) {
+
+			_color = value;
+
+			proxy.tint = value;
+
+			return _color;
+		}
+
+		override function set_font(value:String) {
+
+			_font = value;
+
+			proxy.font = _size + 'px ' + value;
+
+			return _font;
+		}
+
+		override function set_size(value:UInt) {
+
+			_size = value;
+
+			proxy.font = value + 'px ' + _font;
+
+			return _size;
+		}
+	#end
 }

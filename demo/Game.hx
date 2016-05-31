@@ -20,9 +20,8 @@ class Game extends Scene {
 		super.initialize();
 
 		var text = new TextField("Welcome to Hutch :)", "Arial", 24, 0xFF0000);
-		addChild(text);
-
 		text.y = 150;
+		addChild(text);
 
 		var bitmapText = new BitmapTextField("We support bitmap font!", "Desyrel", 30, 0xFFFFFF);
 		addChild(bitmapText);
