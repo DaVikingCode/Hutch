@@ -110,7 +110,9 @@ class DisplayObject {
 
 	#elseif pixi
 
-		function _pixiOnTouchBegan() {
+		function _pixiOnTouchBegan(tEvt:pixi.interaction.EventTarget) {
+
+			tEvt.stopPropagation();
 
 			onTouchBegan.dispatch(this);
 		}
