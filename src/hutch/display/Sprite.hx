@@ -2,12 +2,12 @@ package hutch.display;
 
 class Sprite extends DisplayObject {
 
-	var _children:Array<DisplayObject>;
+	public var children(default, null):Array<DisplayObject>;
 
 	public function new() {
 		super();
 
-		_children = new Array<DisplayObject>();
+		children = new Array<DisplayObject>();
 	}
 
 	override function _initProxy() {
@@ -19,7 +19,7 @@ class Sprite extends DisplayObject {
 
 		proxy.addChild(child.proxy);
 
-		_children.push(child);
+		children.push(child);
 
 		return child;
 	}
@@ -28,19 +28,26 @@ class Sprite extends DisplayObject {
 
 		proxy.addChildAt(child.proxy, index);
 
-		_children.insert(index, child);
+		children.insert(index, child);
 
 		return child;
 	}
 
 	public function getChildAt(index:Int):DisplayObject {
 
-		return _children[index];
+		return children[index];
+	}
+
+	public function getChildIndex(child:DisplayObject):Int {
+
+		return children.indexOf(child);
 	}
 
 	public function removeChild(child:DisplayObject):DisplayObject {
 
 		proxy.removeChild(child.proxy);
+
+		children.remove(child);
 
 		return child;
 	}
@@ -49,13 +56,13 @@ class Sprite extends DisplayObject {
 
 		proxy.removeChildAt(index);
 
-		return _children.splice(index, 1)[0];
+		return children.splice(index, 1)[0];
 	}
 
 	public function removeChildren() {
 
 		proxy.removeChildren();
 
-		_children.splice(0, -1);
+		children.splice(0, -1);
 	}
 }
