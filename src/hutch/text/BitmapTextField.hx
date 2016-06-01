@@ -10,7 +10,7 @@ class BitmapTextField extends TextField {
 	#if pixi
 		override function _initProxy() {
 
-			proxy = new pixi.extras.BitmapText(_text, {font:_size + 'px ' + _font, tint:_color, align:"center"});
+			proxy = new pixi.extras.BitmapText(_text, {font:_size + 'px ' + _font, tint:_color});
 		}
 
 		override function set_color(value:UInt) {

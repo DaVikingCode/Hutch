@@ -37,7 +37,7 @@ class MovieClip extends Image {
 			
 			proxy.animationSpeed = _fps;
 
-			proxy.onComplete = function() { onComplete(); };
+			proxy.onComplete = function() { if (onComplete != null) onComplete(); };
 
 		#end
 	}
@@ -52,7 +52,7 @@ class MovieClip extends Image {
 
 		function _complete(evt:starling.events.Event) {
 
-			if (!loop)
+			if (!loop && onComplete != null)
 				onComplete();
 		}
 
