@@ -1,6 +1,7 @@
 package;
 
 import hutch.core.Scene;
+import hutch.display.AnimationSequence;
 import hutch.display.DisplayObject;
 import hutch.display.Image;
 import hutch.display.MovieClip;
@@ -51,7 +52,26 @@ class Game extends Scene {
 		mc.x = 400;
 		addChild(mc);
 
+		mc.addToJuggler();
 		mc.play();
+
+		var animSeq = new AnimationSequence([
+			new AnimationData("idle", new MovieClip(Main.assetManager.getTextures("Patch/idle"), 20)),
+			new AnimationData("walk", new MovieClip(Main.assetManager.getTextures("Patch/walk"), 20), true),
+			new AnimationData("jump", new MovieClip(Main.assetManager.getTextures("Patch/jump"), 20)),
+			new AnimationData("die", new MovieClip(Main.assetManager.getTextures("Patch/die"), 20)),
+			new AnimationData("duck", new MovieClip(Main.assetManager.getTextures("Patch/duck"), 20)),
+			new AnimationData("fall", new MovieClip(Main.assetManager.getTextures("Patch/fall"), 20)),
+			new AnimationData("hurt", new MovieClip(Main.assetManager.getTextures("Patch/hurt"), 20))
+			], "idle");
+
+		animSeq.x = 500;
+		animSeq.y = 250;
+		addChild(animSeq);
+
+		var anims = [for (i in animSeq.mcSequences.keys()) i];
+		// play random anims
+		new haxe.Timer(1000).run = function() animSeq.changeAnimation(anims[Std.random(anims.length)]);
 
 		//alpha mask is not supported by Starling
 		var cells = new Image(Main.assetManager.getTexture("cells.png"));

@@ -2,7 +2,7 @@ package hutch.display;
 
 class AnimationSequence extends Sprite {
 
-	var _mcSequences:Map<String, MovieClip>;
+	public var mcSequences(default, null):Map<String, MovieClip>;
 	var _previousAnimation:String;
 
 	var _firstAnimation:String;
@@ -10,7 +10,7 @@ class AnimationSequence extends Sprite {
 	public function new(animations:Array<AnimationData>, firstAnimation:String) {
 		super();
 
-		_mcSequences = new Map<String, MovieClip>();
+		mcSequences = new Map<String, MovieClip>();
 
 		_previousAnimation = _firstAnimation = firstAnimation;
 
@@ -18,10 +18,10 @@ class AnimationSequence extends Sprite {
 
 			animation.mc.loop = animation.loop;
 
-			_mcSequences.set(animation.name, animation.mc);
+			mcSequences.set(animation.name, animation.mc);
 		}
 
-		var firstMc = _mcSequences.get(firstAnimation);
+		var firstMc = mcSequences.get(firstAnimation);
 		firstMc.addToJuggler();
 		firstMc.play();
 		addChild(firstMc);
@@ -29,15 +29,15 @@ class AnimationSequence extends Sprite {
 
 	public function changeAnimation(animation:String) {
 
-		var oldMc = _mcSequences.get(_previousAnimation);
+		var oldMc = mcSequences.get(_previousAnimation);
 		oldMc.removeFromJuggler();
 		oldMc.stop();
 		removeChild(oldMc);
 
-		if (!_mcSequences.exists(animation))
+		if (!mcSequences.exists(animation))
         	trace("no animation: " + animation);
 
-        var mc = _mcSequences.get(animation);
+        var mc = mcSequences.get(animation);
         mc.addToJuggler();
         mc.play();
         addChild(mc);
