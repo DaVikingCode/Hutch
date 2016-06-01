@@ -62,11 +62,6 @@ class DisplayObject {
 
 		#if starling
 			touchable = false;
-
-			proxy.addEventListener(starling.events.Event.REMOVED_FROM_STAGE, dispose);
-
-		#elseif pixi
-			proxy.on("removed", dispose);
 		#end
 	}
 
@@ -74,20 +69,6 @@ class DisplayObject {
 
 		proxy = new #if starling starling.display.DisplayObject #elseif pixi pixi.core.display.DisplayObject #end ();
 	}
-
-	#if starling
-		public function dispose(evt:starling.events.Event) {
-			
-			proxy.removeEventListeners();
-		}
-
-	#elseif pixi
-		public function dispose() {
-			
-			proxy.removeAllListeners();
-		}
-
-	#end
 
 	public function addTouchBeganListener() {
 

@@ -22,6 +22,7 @@ class AnimationSequence extends Sprite {
 		}
 
 		var firstMc = _mcSequences.get(firstAnimation);
+		firstMc.addToJuggler();
 		firstMc.play();
 		addChild(firstMc);
 	}
@@ -29,6 +30,7 @@ class AnimationSequence extends Sprite {
 	public function changeAnimation(animation:String) {
 
 		var oldMc = _mcSequences.get(_previousAnimation);
+		oldMc.removeFromJuggler();
 		oldMc.stop();
 		removeChild(oldMc);
 
@@ -36,6 +38,7 @@ class AnimationSequence extends Sprite {
         	trace("no animation: " + animation);
 
         var mc = _mcSequences.get(animation);
+        mc.addToJuggler();
         mc.play();
         addChild(mc);
 
