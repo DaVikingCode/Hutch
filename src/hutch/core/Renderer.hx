@@ -1,8 +1,8 @@
 package hutch.core;
 
-#if starling
+#if flash
 import starling.core.Starling;
-#elseif pixi
+#elseif js
 import js.Browser;
 import pixi.core.display.Container;
 import pixi.core.renderers.SystemRenderer;
@@ -10,7 +10,7 @@ import pixi.core.renderers.Detector;
 import pixi.plugins.app.Application;
 #end
 
-class Renderer extends #if starling AStarling #elseif pixi Application #end {
+class Renderer extends #if flash AStarling #elseif js Application #end {
 
 	static var _instance:Renderer;
 
@@ -32,12 +32,12 @@ class Renderer extends #if starling AStarling #elseif pixi Application #end {
 		return _instance;
 	}
 
-	#if starling override #end public function setUp(debugMode = false) {
+	#if flash override #end public function setUp(debugMode = false) {
 
-		#if starling
+		#if flash
 			super.setUp(debugMode);
 
-		#elseif pixi
+		#elseif js
 
 			backgroundColor = 0x003366;
 			autoResize = false;
@@ -54,7 +54,7 @@ class Renderer extends #if starling AStarling #elseif pixi Application #end {
 		#end
 	}
 
-	#if starling
+	#if flash
 		override function _starlingRootCreated(evt:starling.events.Event) {
 			super._starlingRootCreated(evt);
 
@@ -73,9 +73,9 @@ class Renderer extends #if starling AStarling #elseif pixi Application #end {
     		if (_scene != null) {
 
     			_scene.destroy();
-    			#if starling
+    			#if flash
 	    			cast(renderer.root, starling.display.Sprite).removeChild(_scene.proxy);
-	    		#elseif pixi
+	    		#elseif js
 	    			stage.removeChild(_scene.proxy);
 	    		#end
     		}
@@ -83,9 +83,9 @@ class Renderer extends #if starling AStarling #elseif pixi Application #end {
     		_scene = _newScene;
     		_newScene = null;
 
-    		#if starling
+    		#if flash
     			cast(renderer.root, starling.display.Sprite).addChild(_scene.proxy);
-    		#elseif pixi
+    		#elseif js
     			stage.addChild(_scene.proxy);
     		#end
     		_scene.initialize();
@@ -93,10 +93,6 @@ class Renderer extends #if starling AStarling #elseif pixi Application #end {
 
     	if (_scene != null)
     		_scene.update(elapsedTime);
-
-    	#if pixi
-    		trace(renderer.drawCount);
-    	#end
     }
 
     function get_scene():Scene {

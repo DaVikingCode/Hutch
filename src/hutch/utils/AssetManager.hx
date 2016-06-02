@@ -2,29 +2,29 @@ package hutch.utils;
 
 class AssetManager {
 
-	public var proxy(default, null):#if starling starling.utils.AssetManager #elseif pixi pixi.loaders.Loader #end;
+	public var proxy(default, null):#if flash starling.utils.AssetManager #elseif js pixi.loaders.Loader #end;
 
 	public function new() {
 
-		proxy = new #if starling starling.utils.AssetManager #elseif pixi pixi.loaders.Loader #end();
+		proxy = new #if flash starling.utils.AssetManager #elseif js pixi.loaders.Loader #end();
 	}
 
 	public function add(url:String) {
 
-		#if starling
+		#if flash
 			proxy.enqueue(url);
-		#elseif pixi
+		#elseif js
 			proxy.add(url);
 		#end
 	}
 
 	public function load(onComplete:Dynamic) {
 
-		#if starling
+		#if flash
 			proxy.loadQueue(function(ratio:Float) {
 				onComplete(ratio * 100);
 			});
-		#elseif pixi
+		#elseif js
 			proxy.on('progress', function() {
 				onComplete(proxy.progress);
 			});
@@ -36,19 +36,19 @@ class AssetManager {
 
 	public function getTexture(url:String) {
 
-		#if starling
+		#if flash
 			return proxy.getTexture(url.split('.')[0]);
-		#elseif pixi
+		#elseif js
 			return pixi.core.textures.Texture.fromImage(url);
 		#end
 	}
 	
 	public function getTextures(prefix:String) {
 
-		#if starling
+		#if flash
 			return proxy.getTextures(prefix);
 
-		#elseif pixi
+		#elseif js
 
 			var cache = pixi.core.utils.Utils.TextureCache;
 

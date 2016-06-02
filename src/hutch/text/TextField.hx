@@ -28,12 +28,12 @@ class TextField extends Sprite {
 
 	override function _initProxy() {
 
-		#if starling
+		#if flash
 
 			proxy = new starling.text.TextField(0, 0, _text, new starling.text.TextFormat(_font, _size, _color));
 			proxy.autoSize = starling.text.TextFieldAutoSize.BOTH_DIRECTIONS;
 
-		#elseif pixi
+		#elseif js
 
 			proxy = new pixi.core.text.Text(_text, {font:_size + 'px ' + _font, fill:_color});
 
@@ -49,9 +49,9 @@ class TextField extends Sprite {
 
 		_color = value;
 
-		#if starling
+		#if flash
 			proxy.format.color = value;
-		#elseif pixi
+		#elseif js
 			proxy.style.fill = value;
 		#end
 
@@ -67,9 +67,9 @@ class TextField extends Sprite {
 
 		_font = value;
 
-		#if starling
+		#if flash
 			proxy.format.font = value;
-		#elseif pixi
+		#elseif js
 			proxy.style.font = _size + 'px ' + value;
 		#end
 
@@ -85,9 +85,9 @@ class TextField extends Sprite {
 
 		_size = value;
 
-		#if starling
+		#if flash
 			proxy.format.size = value;
-		#elseif pixi
+		#elseif js
 			proxy.style.font = value + 'px ' + _font;
 		#end
 

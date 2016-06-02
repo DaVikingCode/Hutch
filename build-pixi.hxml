@@ -2,7 +2,6 @@
 -main Main
 -cp demo
 -cp src
--D pixi
 -lib actuate
 -lib ash
 -lib pixijs

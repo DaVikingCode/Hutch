@@ -14,7 +14,7 @@ class Scene extends Sprite {
 
 		_renderer = Renderer.getInstance();
 
-		#if starling
+		#if flash
 			touchable = true;
 		#end
 

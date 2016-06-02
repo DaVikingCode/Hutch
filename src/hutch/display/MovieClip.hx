@@ -4,7 +4,7 @@ class MovieClip extends Image {
 
 	var _fps:Float;
 	public var fps(get, set):Float;
-	public var textures(default, null):#if starling flash.Vector<starling.textures.Texture #elseif pixi Array<pixi.core.textures.Texture #end>;
+	public var textures(default, null):#if flash flash.Vector<starling.textures.Texture #elseif js Array<pixi.core.textures.Texture #end>;
 
 	public var currentFrame(get, set):Int;
 	public var loop(get, set):Bool;
@@ -13,7 +13,7 @@ class MovieClip extends Image {
 	// Be careful, it clones Pixi behavior instead of Starling's one due to Pixi limitation.
 	public var onComplete:Void -> Void;
 
-	public function new(textures:#if starling flash.Vector<starling.textures.Texture #elseif pixi Array<pixi.core.textures.Texture #end>, fps:Float) {
+	public function new(textures:#if flash flash.Vector<starling.textures.Texture #elseif js Array<pixi.core.textures.Texture #end>, fps:Float) {
 
 		this.textures = textures;
 		this.fps = fps;
@@ -23,14 +23,14 @@ class MovieClip extends Image {
 
 	override function _initProxy() {
 
-		#if starling
+		#if flash
 
 			proxy = new starling.display.MovieClip(textures, _fps);
 			proxy.stop();
 
 			proxy.addEventListener(starling.events.Event.COMPLETE, _complete);
 
-		#elseif pixi
+		#elseif js
 
 			proxy = new pixi.extras.MovieClip(textures);
 			
@@ -41,7 +41,7 @@ class MovieClip extends Image {
 		#end
 	}
 
-	#if starling
+	#if flash
 		function _complete(evt:starling.events.Event) {
 
 			if (!loop && onComplete != null)
@@ -51,14 +51,14 @@ class MovieClip extends Image {
 
 	public function addToJuggler() {
 
-		#if starling
+		#if flash
 			starling.core.Starling.juggler.add(proxy);
 		#end
 	}
 
 	public function removeFromJuggler() {
 
-		#if starling
+		#if flash
 			starling.core.Starling.juggler.remove(proxy);
 		#end
 	}
@@ -70,9 +70,9 @@ class MovieClip extends Image {
 
 	public function pause() {
 
-		#if starling
+		#if flash
 			proxy.pause();
-		#elseif pixi
+		#elseif js
 			proxy.stop();
 		#end
 	}
@@ -81,29 +81,29 @@ class MovieClip extends Image {
 
 		proxy.stop();
 
-		#if pixi
+		#if js
 			proxy.gotoAndStop(0);
 		#end
 	}
 
 	function get_fps():Float {
 
-		#if starling
+		#if flash
 			return _fps;
-		#elseif pixi
+		#elseif js
 			return _fps * 60;
 		#end
 	}
 
 	function set_fps(value:Float) {
 
-		#if starling
+		#if flash
 			_fps = value;
 			if (proxy != null)
 				proxy.fps = _fps;
 			return _fps;
 
-		#elseif pixi
+		#elseif js
 			_fps = value / 60;
 			if (proxy != null)
 				proxy.animationSpeed = _fps;
@@ -119,9 +119,9 @@ class MovieClip extends Image {
 
 	function set_currentFrame(value:Int) {
 
-		#if starling
+		#if flash
 			return proxy.currentFrame = value;
-		#elseif pixi
+		#elseif js
 			proxy.gotoAndStop(value);
 			return value;
 		#end
@@ -139,9 +139,9 @@ class MovieClip extends Image {
 
 	function get_numFrames():Int {
 
-		#if starling
+		#if flash
 			return proxy.numFrames;
-		#elseif pixi
+		#elseif js
 			return proxy.totalFrames;
 		#end
 	}

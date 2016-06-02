@@ -60,26 +60,26 @@ class DisplayObject {
 
 		_initProxy();
 
-		#if starling
+		#if flash
 			touchable = false;
 		#end
 	}
 
 	function _initProxy() {
 
-		proxy = new #if starling starling.display.DisplayObject #elseif pixi pixi.core.display.DisplayObject #end ();
+		proxy = new #if flash starling.display.DisplayObject #elseif js pixi.core.display.DisplayObject #end ();
 	}
 
 	public function addTouchBeganListener() {
 
-		#if starling
+		#if flash
 			proxy.addEventListener(starling.events.TouchEvent.TOUCH, _starlingTouchEvent);
-		#elseif pixi
+		#elseif js
 			proxy.on('mousedown', _pixiOnTouchBegan).on('touchstart', _pixiOnTouchBegan);
 		#end
 	}
 
-	#if starling
+	#if flash
 
 		function _starlingTouchEvent(tEvt:starling.events.TouchEvent) {
 
@@ -89,7 +89,7 @@ class DisplayObject {
 				onTouchBegan.dispatch(this);
 		}
 
-	#elseif pixi
+	#elseif js
 
 		function _pixiOnTouchBegan(tEvt:pixi.interaction.EventTarget) {
 
@@ -141,9 +141,9 @@ class DisplayObject {
 
 		_pivotX = value;
 
-		#if starling
+		#if flash
 			proxy.pivotX = value;
-		#elseif pixi
+		#elseif js
 			proxy.pivot.x = value;
 		#end
 
@@ -159,9 +159,9 @@ class DisplayObject {
 
 		_pivotY = value;
 
-		#if starling
+		#if flash
 			proxy.pivotY = value;
-		#elseif pixi
+		#elseif js
 			proxy.pivot.y = value;
 		#end
 
@@ -187,9 +187,9 @@ class DisplayObject {
 
 		_scaleX = value;
 
-		#if starling
+		#if flash
 			proxy.scaleX = value;
-		#elseif pixi
+		#elseif js
 			proxy.scale.x = value;
 		#end
 
@@ -205,9 +205,9 @@ class DisplayObject {
 
 		_scaleY = value;
 
-		#if starling
+		#if flash
 			proxy.scaleY = value;
-		#elseif pixi
+		#elseif js
 			proxy.scale.y = value;
 		#end
 
@@ -223,9 +223,9 @@ class DisplayObject {
 
 		_touchable = value;
 
-		#if starling
+		#if flash
 			proxy.touchable = value;
-		#elseif pixi
+		#elseif js
 			proxy.interactive = value;
 		#end
 
@@ -241,9 +241,9 @@ class DisplayObject {
 
 		_useHandCursor = value;
 
-		#if starling
+		#if flash
 			proxy.useHandCursor = value;
-		#elseif pixi
+		#elseif js
 			proxy.buttonMode = value;
 		#end
 

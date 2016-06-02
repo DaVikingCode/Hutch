@@ -4,9 +4,9 @@ import hutch.textures.Texture;
 
 class Image extends DisplayObject {
 
-	public var texture(default, null):#if starling starling.textures.Texture #elseif pixi pixi.core.textures.Texture #end;
+	public var texture(default, null):#if flash starling.textures.Texture #elseif js pixi.core.textures.Texture #end;
 
-	public function new(texture:#if starling starling.textures.Texture #elseif pixi pixi.core.textures.Texture #end) {
+	public function new(texture:#if flash starling.textures.Texture #elseif js pixi.core.textures.Texture #end) {
 		
 		this.texture = texture;
 		
@@ -15,6 +15,6 @@ class Image extends DisplayObject {
 
 	override function _initProxy() {
 
-		proxy = new #if starling starling.display.Image #elseif pixi pixi.core.sprites.Sprite #end(texture);
+		proxy = new #if flash starling.display.Image #elseif js pixi.core.sprites.Sprite #end(texture);
 	}
 }

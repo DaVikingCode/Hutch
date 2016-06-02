@@ -7,7 +7,7 @@ class BitmapTextField extends TextField {
 		super(text, font, size, color);
 	}
 
-	#if pixi
+	#if js
 		override function _initProxy() {
 
 			proxy = new pixi.extras.BitmapText(_text, {font:_size + 'px ' + _font, tint:_color});

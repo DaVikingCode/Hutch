@@ -27,11 +27,11 @@ class Main extends Renderer {
 		assetManager.add("moby.png");
 		assetManager.add("desyrel.fnt");
 
-		#if starling
+		#if flash
 			assetManager.add("spritesheet_starling.png");
 			assetManager.add("spritesheet_starling.xml");
 			assetManager.add("desyrel.png");
-		#elseif pixi
+		#elseif js
 			assetManager.add("spritesheet_pixi.json");
 		#end
 

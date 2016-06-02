@@ -13,7 +13,7 @@ class Stage {
 
 	public function new() {
 
-		proxy = #if starling starling.core.Starling.current.stage; #elseif pixi Renderer.getInstance(); #end
+		proxy = #if flash starling.core.Starling.current.stage; #elseif js Renderer.getInstance(); #end
 	}
 
 	static private function get_instance():Stage {
@@ -26,18 +26,18 @@ class Stage {
 
 	function get_height():Float {
 
-		#if starling
+		#if flash
 			return proxy.stage.stageHeight;
-		#elseif pixi
+		#elseif js
 			return proxy.height;
 		#end
 	}
 
 	function get_width():Float {
 
-		#if starling
+		#if flash
 			return proxy.stage.stageWidth;
-		#elseif pixi
+		#elseif js
 			return proxy.width;
 		#end
 	}

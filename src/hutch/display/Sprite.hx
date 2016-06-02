@@ -12,7 +12,7 @@ class Sprite extends DisplayObject {
 
 	override function _initProxy() {
 
-		proxy = new #if starling starling.display.Sprite #elseif pixi pixi.core.display.Container #end();
+		proxy = new #if flash starling.display.Sprite #elseif js pixi.core.display.Container #end();
 	}
 
 	public function addChild(child:DisplayObject):DisplayObject {

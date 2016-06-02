@@ -2,7 +2,6 @@
 -main Main
 -cp demo
 -cp src
--D starling
 -lib actuate
 -lib ash
 -swf-lib starling.swc

@@ -84,7 +84,7 @@ class Game extends Scene {
 
 		cells.y = _stage.height - mask.height;
 
-		#if pixi
+		#if js
 			mask.y = cells.y;
 			addChild(mask);
 		#end
