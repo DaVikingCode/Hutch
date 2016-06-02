@@ -2,6 +2,7 @@ package;
 
 import hutch.core.Scene;
 import hutch.display.AnimationSequence;
+import hutch.display.Canvas;
 import hutch.display.DisplayObject;
 import hutch.display.Image;
 import hutch.display.MovieClip;
@@ -73,6 +74,15 @@ class Game extends Scene {
 		var anims = [for (i in animSeq.mcSequences.keys()) i];
 		// play random anims
 		new haxe.Timer(1000).run = function() animSeq.changeAnimation(anims[Std.random(anims.length)]);
+
+		var graphics = new Canvas();
+		graphics.beginFill(0xFF0000, 0.2);
+		graphics.drawRectangle(0, 0, 250, 75);
+		graphics.endFill();
+		
+		graphics.x = _stage.width - 250;
+		graphics.y = _stage.height - 75;
+		addChild(graphics);
 
 		//alpha mask is not supported by Starling
 		var cells = new Image(Main.assetManager.getTexture("cells.png"));

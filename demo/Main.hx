@@ -9,19 +9,19 @@ class Main extends Renderer {
 
 	static function main() {
 
-        new Main();
+		new Main();
 	}
 
-    public function new() {
+	public function new() {
 
-        super();
+		super();
+		
+		setUp(true);
+	}
 
-        setUp(true);
-    }
+	override public function initialize() {
 
-    override public function initialize() {
-
-    	assetManager.add("bunny.png");
+		assetManager.add("bunny.png");
 		assetManager.add("starling.png");
 		assetManager.add("cells.png");
 		assetManager.add("moby.png");
@@ -44,5 +44,5 @@ class Main extends Renderer {
 				//scene = new DisplayListOperations();
 			}
 		});
-    }
+	}
 }
