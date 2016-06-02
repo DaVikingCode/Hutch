@@ -22,17 +22,18 @@ class Game extends Scene {
 		super.initialize();
 
 		var text = new TextField("Welcome to Hutch :)", "Arial", 24, 0xFF0000);
-		text.y = 150;
+		text.y = 250;
 		addChild(text);
 
 		var bitmapText = new BitmapTextField("Bitmap font support!", "Desyrel", 30, 0xFFFFFF);
+		bitmapText.y = 100;
 		addChild(bitmapText);
 
 		bunny = new Image(Main.assetManager.getTexture("bunny.png"));
 		bunny.pivotX = bunny.width / 2;
 		bunny.pivotY = bunny.height / 2;
 
-		bunny.y = 50;
+		bunny.y = 150;
 		addChild(bunny);
 
 		var bird = new Image(Main.assetManager.getTexture("starling.png"));
@@ -49,23 +50,23 @@ class Game extends Scene {
 		});
 
 		var mc = new MovieClip(Main.assetManager.getTextures("explosion_"), 30);
-		mc.x = 400;
+		mc.x = 450;
 		addChild(mc);
 
 		mc.addToJuggler();
 		mc.play();
 
 		var animSeq = new AnimationSequence([
-			new AnimationData("idle", new MovieClip(Main.assetManager.getTextures("Patch/idle"), 20)),
-			new AnimationData("walk", new MovieClip(Main.assetManager.getTextures("Patch/walk"), 20), true),
-			new AnimationData("jump", new MovieClip(Main.assetManager.getTextures("Patch/jump"), 20)),
-			new AnimationData("die", new MovieClip(Main.assetManager.getTextures("Patch/die"), 20)),
-			new AnimationData("duck", new MovieClip(Main.assetManager.getTextures("Patch/duck"), 20)),
-			new AnimationData("fall", new MovieClip(Main.assetManager.getTextures("Patch/fall"), 20)),
-			new AnimationData("hurt", new MovieClip(Main.assetManager.getTextures("Patch/hurt"), 20))
+			new AnimationData("idle", new MovieClip(Main.assetManager.getTextures("Patch/idle"), 15)),
+			new AnimationData("walk", new MovieClip(Main.assetManager.getTextures("Patch/walk"), 15), true),
+			new AnimationData("jump", new MovieClip(Main.assetManager.getTextures("Patch/jump"), 15)),
+			new AnimationData("die", new MovieClip(Main.assetManager.getTextures("Patch/die"), 15)),
+			new AnimationData("duck", new MovieClip(Main.assetManager.getTextures("Patch/duck"), 15)),
+			new AnimationData("fall", new MovieClip(Main.assetManager.getTextures("Patch/fall"), 15)),
+			new AnimationData("hurt", new MovieClip(Main.assetManager.getTextures("Patch/hurt"), 15))
 			], "idle");
 
-		animSeq.x = 500;
+		animSeq.x = 650;
 		animSeq.y = 250;
 		addChild(animSeq);
 

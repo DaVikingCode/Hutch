@@ -25,23 +25,33 @@ class Renderer extends #if starling AStarling #elseif pixi Application #end {
 		_instance = this;
 
 		onUpdate = _onUpdate;
-
-		#if pixi
-
-	        backgroundColor = 0x003366;
-	        autoResize = false;
-	        width = 800;
-	        height = 600;
-
-	        super.start();
-
-	        initialize();
-		#end
 	}
 
 	static public function getInstance():Renderer {
 
 		return _instance;
+	}
+
+	#if starling override #end public function setUp(debugMode = false) {
+
+		#if starling
+			super.setUp(debugMode);
+
+		#elseif pixi
+
+			backgroundColor = 0x003366;
+			autoResize = false;
+			width = 900;
+			height = 650;
+
+			if (debugMode)
+				var stats = new Perf(Perf.TOP_LEFT);
+
+			super.start();
+
+			initialize();
+
+		#end
 	}
 
 	#if starling
@@ -83,6 +93,10 @@ class Renderer extends #if starling AStarling #elseif pixi Application #end {
 
     	if (_scene != null)
     		_scene.update(elapsedTime);
+
+    	#if pixi
+    		trace(renderer.drawCount);
+    	#end
     }
 
     function get_scene():Scene {

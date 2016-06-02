@@ -15,6 +15,8 @@ class Main extends Renderer {
     public function new() {
 
         super();
+
+        setUp(true);
     }
 
     override public function initialize() {

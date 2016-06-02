@@ -7,7 +7,7 @@
 -lib ash
 -swf-lib starling.swc
 --macro "patchTypes('starling.patch')"
--swf-header 800:600:60:003366
+-swf-header 900:650:60:003366
 -swf-version 17
 -debug
 
