@@ -2,6 +2,8 @@ package hutch.display;
 
 import ash.signals.Signal1;
 
+import hutch.filters.FilterChain;
+
 class DisplayObject {
 
 	public var proxy(default, null):Dynamic;
@@ -14,6 +16,9 @@ class DisplayObject {
 
 	var _alpha:Float = 1;
 	public var alpha(get, set):Float;
+
+	var _filter:FilterChain;
+	public var filter(get, set):FilterChain;
 
 	var _height:Float;
 	public var height(get, set):Float;
@@ -108,6 +113,22 @@ class DisplayObject {
 	function set_alpha(value:Float) {
 
 		return _alpha = proxy.alpha = value;
+	}
+
+	function get_filter():FilterChain {
+
+		return _filter;
+	}
+
+	function set_filter(value:FilterChain) {
+
+		#if flash
+			proxy.filter = value.proxy;
+		#elseif js
+			proxy.filters = value.proxy;
+		#end
+
+		return _filter = value;
 	}
 
 	function get_height():Float {
