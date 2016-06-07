@@ -1,6 +1,7 @@
 package;
 
 import hutch.core.Renderer;
+import hutch.core.RendererOptions;
 import hutch.utils.AssetManager;
 
 class Main extends Renderer {
@@ -16,7 +17,7 @@ class Main extends Renderer {
 
 		super();
 		
-		setUp(true);
+		setUpRenderer({debugMode:true, backgroundColor:0x003366, autoResize:false, width:900, height:650});
 	}
 
 	override public function initialize() {

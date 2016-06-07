@@ -23,10 +23,10 @@ class AStarling extends flash.display.Sprite {
 		_gameTime = _startTime = Date.now().getTime();
 	}
 
-	public function setUp(debugMode = false) {
+	public function setUpRenderer(options:RendererOptions) {
 
 		renderer = new Starling(starling.display.Sprite, flash.Lib.current.stage);
-		renderer.showStats = debugMode;
+		renderer.showStats = options.debugMode;
 		renderer.start();
 
 		addEventListener(flash.events.Event.ENTER_FRAME, _onRequestAnimationFrame);

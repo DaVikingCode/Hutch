@@ -32,19 +32,19 @@ class Renderer extends #if flash AStarling #elseif js Application #end {
 		return _instance;
 	}
 
-	#if flash override #end public function setUp(debugMode = false) {
+	#if flash override #end public function setUpRenderer(options:RendererOptions) {
 
 		#if flash
-			super.setUp(debugMode);
+			super.setUpRenderer(options);
 
 		#elseif js
 
-			backgroundColor = 0x003366;
-			autoResize = false;
-			width = 900;
-			height = 650;
+			backgroundColor = options.backgroundColor;
+			autoResize = options.autoResize;
+			width = options.width;
+			height = options.height;
 
-			if (debugMode)
+			if (options.debugMode)
 				var stats = new Perf(Perf.TOP_LEFT);
 
 			super.start();

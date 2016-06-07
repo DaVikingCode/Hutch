@@ -6,6 +6,8 @@ import hutch.display.Canvas;
 import hutch.display.DisplayObject;
 import hutch.display.Image;
 import hutch.display.MovieClip;
+import hutch.filters.BlurFilter;
+import hutch.filters.FilterChain;
 import hutch.text.BitmapTextField;
 import hutch.text.TextField;
 
@@ -69,6 +71,12 @@ class Game extends Scene {
 
 		animSeq.x = 650;
 		animSeq.y = 250;
+
+		var filters = new FilterChain();
+		filters.addFilter(new BlurFilter());
+
+		animSeq.filter = filters;
+
 		addChild(animSeq);
 
 		var anims = [for (i in animSeq.mcSequences.keys()) i];
@@ -79,7 +87,7 @@ class Game extends Scene {
 		graphics.beginFill(0xFF0000, 0.2);
 		graphics.drawRectangle(0, 0, 250, 75);
 		graphics.endFill();
-		
+
 		graphics.x = _stage.width - 250;
 		graphics.y = _stage.height - 75;
 		addChild(graphics);
