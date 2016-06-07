@@ -34,9 +34,12 @@ class DisplayListOperations extends Scene {
 
 		addChild(_container);
 
-		var monsters = [new Image(Main.assetManager.getTexture("eggHead.png")), new Image(Main.assetManager.getTexture("flowerTop.png")), new Image(Main.assetManager.getTexture("helmlok.png")), new Image(Main.assetManager.getTexture("skully.png"))];
+		var monsters = ["eggHead.png", "flowerTop.png", "helmlok.png", "skully.png"];
 		var i = 0;
-		for (monster in monsters) {
+		for (monsterName in monsters) {
+
+			var monster = new Image(Main.assetManager.getTexture(monsterName));
+			monster.name = monsterName;
 
 			monster.pivotX = monster.width * 0.5;
 			monster.pivotY = monster.height * 0.5;

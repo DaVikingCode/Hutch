@@ -27,6 +27,9 @@ class DisplayObject {
 	var _mask:DisplayObject;
 	public var mask(get, set):DisplayObject;
 
+	var _name:String = null;
+	public var name(get, set):String;
+
 	var _pivotX:Float = 0;
 	public var pivotX(get, set):Float;
 
@@ -152,6 +155,16 @@ class DisplayObject {
 		proxy.mask = value.proxy;
 
 		return _mask = value;
+	}
+
+	function get_name():String {
+
+		return _name;
+	}
+
+	function set_name(value:String) {
+
+		return _name = proxy.name = value;
 	}
 
 	function get_pivotX():Float {

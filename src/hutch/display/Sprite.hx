@@ -38,6 +38,15 @@ class Sprite extends DisplayObject {
 		return children[index];
 	}
 
+	public function getChildByName(name:String):DisplayObject {
+
+		for (child in children)
+			if (child.name == name)
+				return child;
+
+		return null;
+	}
+
 	public function getChildIndex(child:DisplayObject):Int {
 
 		return children.indexOf(child);
