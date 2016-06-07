@@ -1,9 +1,9 @@
 package;
 
 import hutch.core.Scene;
-import hutch.display.DisplayObject;
 import hutch.display.Image;
 import hutch.display.Sprite;
+import hutch.events.TouchEvent;
 
 class DisplayListOperations extends Scene {
 
@@ -53,9 +53,9 @@ class DisplayListOperations extends Scene {
 		}
 	}
 
-	function _monsterTouched(target:DisplayObject) {
+	function _monsterTouched(tEvt:TouchEvent) {
 
-		setChildIndex(target, children.length - 1);
+		setChildIndex(tEvt.target, children.length - 1);
 	}
 
 	override public function update(elapsedTime:Float) {
