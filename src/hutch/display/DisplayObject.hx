@@ -2,13 +2,14 @@ package hutch.display;
 
 import ash.signals.Signal1;
 
+import hutch.events.TouchEvent;
 import hutch.filters.FilterChain;
 
 class DisplayObject {
 
 	public var proxy(default, null):Dynamic;
 
-	public var onTouchBegan:Signal1<DisplayObject>;
+	public var onTouchBegan:Signal1<TouchEvent>;
 
 	// didn't use @:isVar public var alpha(get, set):Float = 1; since Actuate doesn't like it.
 	// didn't use default as getter since Actuate doesn't like it.
@@ -61,7 +62,7 @@ class DisplayObject {
 
 	public function new() {
 
-		onTouchBegan = new Signal1<DisplayObject>();
+		onTouchBegan = new Signal1<TouchEvent>();
 
 		_initProxy();
 
@@ -91,7 +92,7 @@ class DisplayObject {
 			var began = tEvt.getTouch(proxy, starling.events.TouchPhase.BEGAN);
 
 			if (began != null)
-				onTouchBegan.dispatch(this);
+				onTouchBegan.dispatch({target:this, globalX:began.globalX, globalY:began.globalY});
 		}
 
 	#elseif js
@@ -100,7 +101,7 @@ class DisplayObject {
 
 			tEvt.stopPropagation();
 
-			onTouchBegan.dispatch(this);
+			onTouchBegan.dispatch({target:this, globalX:tEvt.data.global.x, globalY:tEvt.data.global.y});
 		}
 
 	#end
