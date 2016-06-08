@@ -14,7 +14,11 @@ class AssetManager {
 		#if flash
 			proxy.enqueue(url);
 		#elseif js
-			proxy.add(url);
+
+			if (url.indexOf("/") != -1 && url.indexOf(".png") != -1)
+				proxy.add(url.substr(url.lastIndexOf("/") + 1), url);
+			else
+				proxy.add(url);
 		#end
 	}
 
@@ -39,6 +43,12 @@ class AssetManager {
 		#if flash
 			return proxy.getTexture(url.split('.')[0]);
 		#elseif js
+
+			var resource = Reflect.field(proxy.resources, url);
+
+			if (resource != null)
+				return pixi.core.textures.Texture.fromImage(resource.url);
+
 			return pixi.core.textures.Texture.fromImage(url);
 		#end
 	}

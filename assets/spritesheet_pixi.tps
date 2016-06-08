@@ -147,7 +147,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../bin/spritesheet_pixi.json</filename>
+                <filename>../bin/assets/spritesheet_pixi.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -194,6 +194,50 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">spritesheet/Patch.swf/die_0000</key>
+            <key type="filename">spritesheet/Patch.swf/die_0001</key>
+            <key type="filename">spritesheet/Patch.swf/die_0002</key>
+            <key type="filename">spritesheet/Patch.swf/die_0003</key>
+            <key type="filename">spritesheet/Patch.swf/die_0004</key>
+            <key type="filename">spritesheet/Patch.swf/die_0005</key>
+            <key type="filename">spritesheet/Patch.swf/duck_0000</key>
+            <key type="filename">spritesheet/Patch.swf/duck_0001</key>
+            <key type="filename">spritesheet/Patch.swf/fall_0000</key>
+            <key type="filename">spritesheet/Patch.swf/fall_0001</key>
+            <key type="filename">spritesheet/Patch.swf/fall_0002</key>
+            <key type="filename">spritesheet/Patch.swf/fall_0003</key>
+            <key type="filename">spritesheet/Patch.swf/fall_0004</key>
+            <key type="filename">spritesheet/Patch.swf/fall_0005</key>
+            <key type="filename">spritesheet/Patch.swf/hurt_0000</key>
+            <key type="filename">spritesheet/Patch.swf/hurt_0001</key>
+            <key type="filename">spritesheet/Patch.swf/hurt_0002</key>
+            <key type="filename">spritesheet/Patch.swf/hurt_0003</key>
+            <key type="filename">spritesheet/Patch.swf/hurt_0004</key>
+            <key type="filename">spritesheet/Patch.swf/hurt_0005</key>
+            <key type="filename">spritesheet/Patch.swf/idle_0000</key>
+            <key type="filename">spritesheet/Patch.swf/jump_0000</key>
+            <key type="filename">spritesheet/Patch.swf/jump_0001</key>
+            <key type="filename">spritesheet/Patch.swf/jump_0002</key>
+            <key type="filename">spritesheet/Patch.swf/jump_0003</key>
+            <key type="filename">spritesheet/Patch.swf/jump_0004</key>
+            <key type="filename">spritesheet/Patch.swf/jump_0005</key>
+            <key type="filename">spritesheet/Patch.swf/land_0000</key>
+            <key type="filename">spritesheet/Patch.swf/land_0001</key>
+            <key type="filename">spritesheet/Patch.swf/land_0002</key>
+            <key type="filename">spritesheet/Patch.swf/land_0003</key>
+            <key type="filename">spritesheet/Patch.swf/land_0004</key>
+            <key type="filename">spritesheet/Patch.swf/skid_0000</key>
+            <key type="filename">spritesheet/Patch.swf/skid_0001</key>
+            <key type="filename">spritesheet/Patch.swf/skid_0002</key>
+            <key type="filename">spritesheet/Patch.swf/skid_0003</key>
+            <key type="filename">spritesheet/Patch.swf/skid_0004</key>
+            <key type="filename">spritesheet/Patch.swf/skid_0005</key>
+            <key type="filename">spritesheet/Patch.swf/walk_0000</key>
+            <key type="filename">spritesheet/Patch.swf/walk_0001</key>
+            <key type="filename">spritesheet/Patch.swf/walk_0002</key>
+            <key type="filename">spritesheet/Patch.swf/walk_0003</key>
+            <key type="filename">spritesheet/Patch.swf/walk_0004</key>
+            <key type="filename">spritesheet/Patch.swf/walk_0005</key>
             <key type="filename">spritesheet/eggHead.png</key>
             <key type="filename">spritesheet/explosion_01.png</key>
             <key type="filename">spritesheet/explosion_02.png</key>

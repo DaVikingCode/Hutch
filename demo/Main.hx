@@ -22,18 +22,18 @@ class Main extends Renderer {
 
 	override public function initialize() {
 
-		assetManager.add("bunny.png");
-		assetManager.add("starling.png");
-		assetManager.add("cells.png");
-		assetManager.add("moby.png");
-		assetManager.add("desyrel.fnt");
+		assetManager.add("assets/bunny.png");
+		assetManager.add("assets/starling.png");
+		assetManager.add("assets/cells.png");
+		assetManager.add("assets/moby.png");
+		assetManager.add("assets/desyrel.fnt");
 
 		#if flash
-			assetManager.add("spritesheet_starling.png");
-			assetManager.add("spritesheet_starling.xml");
-			assetManager.add("desyrel.png");
+			assetManager.add("assets/spritesheet_starling.png");
+			assetManager.add("assets/spritesheet_starling.xml");
+			assetManager.add("assets/desyrel.png");
 		#elseif js
-			assetManager.add("spritesheet_pixi.json");
+			assetManager.add("assets/spritesheet_pixi.json");
 		#end
 
 		assetManager.load(function(percent:Float) {
