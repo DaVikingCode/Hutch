@@ -2,17 +2,10 @@ package hutch.textures;
 
 class Texture {
 
-	var _textureProxy:#if flash starling.textures.Texture #elseif js pixi.core.textures.Texture #end;
+	public var proxy(default, null):#if flash starling.textures.Texture #elseif js pixi.core.textures.Texture #end;
 
-	public function new() {
+	public function new(value:#if flash starling.textures.Texture #elseif js pixi.core.textures.Texture #end) {
 
-		//_textureProxy = new #if flash starling.textures.Texture #elseif js pixi.core.textures.Texture #end();
-	}
-
-	static public function fromURL(url:String) {
-
-		#if js
-			return pixi.core.textures.Texture.fromImage(url);
-		#end
+		proxy = value;
 	}
 }

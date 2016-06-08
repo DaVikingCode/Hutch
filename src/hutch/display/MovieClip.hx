@@ -1,10 +1,12 @@
 package hutch.display;
 
+import hutch.textures.Texture;
+
 class MovieClip extends Image {
 
 	var _fps:Float;
 	public var fps(get, set):Float;
-	public var textures(default, null):#if flash flash.Vector<starling.textures.Texture #elseif js Array<pixi.core.textures.Texture #end>;
+	public var textures(default, null):Array<Texture>;
 
 	public var currentFrame(get, set):Int;
 	public var loop(get, set):Bool;
@@ -13,7 +15,7 @@ class MovieClip extends Image {
 	// Be careful, it clones Pixi behavior instead of Starling's one due to Pixi limitation.
 	public var onComplete:Void -> Void;
 
-	public function new(textures:#if flash flash.Vector<starling.textures.Texture #elseif js Array<pixi.core.textures.Texture #end>, fps:Float) {
+	public function new(textures:Array<Texture>, fps:Float) {
 
 		this.textures = textures;
 		this.fps = fps;
@@ -23,16 +25,21 @@ class MovieClip extends Image {
 
 	override function _initProxy() {
 
+		var nativeTextures = new #if flash flash.Vector<starling.textures.Texture #elseif js Array<pixi.core.textures.Texture #end>();
+
+		for (i in 0...textures.length)
+			nativeTextures.push(textures[i].proxy);
+
 		#if flash
 
-			proxy = new starling.display.MovieClip(textures, _fps);
+			proxy = new starling.display.MovieClip(nativeTextures, _fps);
 			proxy.stop();
 
 			proxy.addEventListener(starling.events.Event.COMPLETE, _complete);
 
 		#elseif js
 
-			proxy = new pixi.extras.MovieClip(textures);
+			proxy = new pixi.extras.MovieClip(nativeTextures);
 			
 			proxy.animationSpeed = _fps;
 

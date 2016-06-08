@@ -28,6 +28,11 @@ class Main extends Renderer {
 		assetManager.add("assets/moby.png");
 		assetManager.add("assets/desyrel.fnt");
 
+		assetManager.add("assets/interactivity/button_test_BG.jpg");
+		assetManager.add("assets/interactivity/button.png");
+		assetManager.add("assets/interactivity/buttonDown.png");
+		assetManager.add("assets/interactivity/buttonOver.png");
+
 		#if flash
 			assetManager.add("assets/spritesheet_starling.png");
 			assetManager.add("assets/spritesheet_starling.xml");
@@ -43,6 +48,8 @@ class Main extends Renderer {
 				scene = new Game();
 
 				//scene = new DisplayListOperations();
+
+				//scene = new Interactivity();
 			}
 		});
 	}
