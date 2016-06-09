@@ -6,6 +6,5 @@
 -lib ash
 -lib pixijs
 -debug
-
-#-dce full
+-dce full
 #-lib closure

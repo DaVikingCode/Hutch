@@ -9,5 +9,4 @@
 -swf-header 900:650:60:003366
 -swf-version 17
 -debug
-
-#-dce full
+-dce full

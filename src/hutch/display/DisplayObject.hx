@@ -109,12 +109,12 @@ class DisplayObject {
 
 	#end
 
-	function get_alpha():Float {
+	@:keep function get_alpha():Float {
 
 		return _alpha;
 	}
 
-	function set_alpha(value:Float) {
+	@:keep function set_alpha(value:Float) {
 
 		return _alpha = proxy.alpha = value;
 	}
@@ -135,12 +135,12 @@ class DisplayObject {
 		return _filter = value;
 	}
 
-	function get_height():Float {
+	@:keep function get_height():Float {
 
 		return _height = proxy.height;
 	}
 
-	function set_height(value:Float) {
+	@:keep function set_height(value:Float) {
 
 		return _height = proxy.height = value;
 	}
@@ -167,12 +167,12 @@ class DisplayObject {
 		return _name = proxy.name = value;
 	}
 
-	function get_pivotX():Float {
+	@:keep function get_pivotX():Float {
 
 		return _pivotX;
 	}
 
-	function set_pivotX(value:Float) {
+	@:keep function set_pivotX(value:Float) {
 
 		_pivotX = value;
 
@@ -185,12 +185,12 @@ class DisplayObject {
 		return _pivotX;
 	}
 
-	function get_pivotY():Float {
+	@:keep function get_pivotY():Float {
 
 		return _pivotY;
 	}
 
-	function set_pivotY(value:Float) {
+	@:keep function set_pivotY(value:Float) {
 
 		_pivotY = value;
 
@@ -203,22 +203,22 @@ class DisplayObject {
 		return _pivotY;
 	}
 
-	function get_rotation():Float {
+	@:keep function get_rotation():Float {
 
 		return _rotation;
 	}
 
-	function set_rotation(value:Float) {
+	@:keep function set_rotation(value:Float) {
 
 		return _rotation = proxy.rotation = value;
 	}
 
-	function get_scaleX():Float {
+	@:keep function get_scaleX():Float {
 
 		return _scaleX;
 	}
 
-	function set_scaleX(value:Float) {
+	@:keep function set_scaleX(value:Float) {
 
 		_scaleX = value;
 
@@ -231,12 +231,12 @@ class DisplayObject {
 		return _scaleX;
 	}
 
-	function get_scaleY():Float {
+	@:keep function get_scaleY():Float {
 
 		return _scaleY;
 	}
 
-	function set_scaleY(value:Float) {
+	@:keep function set_scaleY(value:Float) {
 
 		_scaleY = value;
 
@@ -295,32 +295,32 @@ class DisplayObject {
 		return _visible = proxy.visible = value;
 	}
 
-	function get_width():Float {
+	@:keep function get_width():Float {
 
 		return _width = proxy.width;
 	}
 
-	function set_width(value:Float) {
+	@:keep function set_width(value:Float) {
 
 		return _width = proxy.width = value;
 	}
 
-	function get_x():Float {
+	@:keep function get_x():Float {
 
 		return _x;
 	}
 
-	function set_x(value:Float) {
+	@:keep function set_x(value:Float) {
 
 		return _x = proxy.x = value;
 	}
 
-	function get_y():Float {
+	@:keep function get_y():Float {
 
 		return _y;
 	}
 
-	function set_y(value:Float) {
+	@:keep function set_y(value:Float) {
 
 		return _y = proxy.y = value;
 	}
