@@ -106,18 +106,30 @@ class DisplayObject {
 
 		function _starlingTouchEvent(tEvt:starling.events.TouchEvent) {
 
-			var began = tEvt.getTouch(proxy, starling.events.TouchPhase.BEGAN);
-			var hover = tEvt.getTouch(proxy, starling.events.TouchPhase.HOVER);
-			var ended = tEvt.getTouch(proxy, starling.events.TouchPhase.ENDED);
+			var touch = tEvt.getTouch(proxy);
 
-			if (onTouchBegan != null && began != null)
-				onTouchBegan({target:this, globalX:began.globalX, globalY:began.globalY});
+			if (touch != null) {
 
-			if (onTouchHover != null && hover != null)
-				onTouchHover({target:this, globalX:hover.globalX, globalY:hover.globalY});
+				if (onTouchBegan != null && touch.phase == starling.events.TouchPhase.BEGAN)
+					onTouchBegan({target:this, globalX:touch.globalX, globalY:touch.globalY});
 
-			if (onTouchEnded != null && ended != null)
-				onTouchEnded({target:this, globalX:ended.globalX, globalY:ended.globalY});
+				if (onTouchHover != null && touch.phase == starling.events.TouchPhase.HOVER)
+					onTouchHover({target:this, globalX:touch.globalX, globalY:touch.globalY});
+
+				if (onTouchEnded != null && touch.phase == starling.events.TouchPhase.ENDED)
+					onTouchEnded({target:this, globalX:touch.globalX, globalY:touch.globalY});
+			}
+
+			if (onTouchOut != null) {
+
+				if (touch != null)
+					if (proxy.hitTest(proxy.globalToLocal(new flash.geom.Point(touch.globalX, touch.globalY))) == null)
+						onTouchOut({target:this, globalX:touch.globalX, globalY:touch.globalY});
+						// could be improved? http://forum.starling-framework.org/topic/touchphasemoved-and-out
+				
+				if (touch == null)
+					onTouchOut({target:this, globalX:0, globalY:0});
+			}
 		}
 
 	#elseif js
@@ -132,8 +144,13 @@ class DisplayObject {
 			if (onTouchHover != null && tEvt.type == 'mouseover')
 				onTouchHover({target:this, globalX:tEvt.data.global.x, globalY:tEvt.data.global.y});
 
-			if (onTouchEnded != null && (tEvt.type == 'touchend' || tEvt.type == 'touchendoutside' || tEvt.type == 'mouseup' || tEvt.type == 'mouseupoutside'))
+			if (onTouchEnded != null && (tEvt.type == 'touchend' || tEvt.type == 'touchendoutside' || tEvt.type == 'mouseup' || tEvt.type == 'mouseupoutside')) {
+
 				onTouchEnded({target:this, globalX:tEvt.data.global.x, globalY:tEvt.data.global.y});
+
+				if (onTouchHover != null && (tEvt.type == 'touchend' || tEvt.type == 'mouseup'))
+					onTouchHover({target:this, globalX:tEvt.data.global.x, globalY:tEvt.data.global.y});
+			}
 
 			if (onTouchOut != null && tEvt.type == 'mouseout')
 				onTouchOut({target:this, globalX:tEvt.data.global.x, globalY:tEvt.data.global.y});
