@@ -47,11 +47,10 @@ class Game extends Scene {
 		bird.useHandCursor = true;
 		bird.touchable = true;
 
-		bird.addTouchBeganListener();
-		bird.onTouchBegan.add(function(tEvt:TouchEvent) {
+		bird.onTouchBegan = function(tEvt:TouchEvent) {
 
 			bird.scaleX = bird.scaleY += 0.1;
-		});
+		};
 
 		var mc = new MovieClip(Main.assetManager.getTextures("explosion_"), 30);
 		mc.x = 450;

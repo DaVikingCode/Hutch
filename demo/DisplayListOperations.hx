@@ -49,8 +49,7 @@ class DisplayListOperations extends Scene {
 
 			monster.useHandCursor = monster.touchable = true;
 
-			monster.addTouchBeganListener();
-			monster.onTouchBegan.add(_monsterTouched);
+			monster.onTouchBegan = _monsterTouched;
 
 			addChild(monster);
 		}

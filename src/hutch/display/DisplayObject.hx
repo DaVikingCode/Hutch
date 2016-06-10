@@ -1,7 +1,5 @@
 package hutch.display;
 
-import ash.signals.Signal1;
-
 import hutch.events.TouchEvent;
 import hutch.filters.FilterChain;
 
@@ -9,7 +7,10 @@ class DisplayObject {
 
 	public var proxy(default, null):Dynamic;
 
-	public var onTouchBegan:Signal1<TouchEvent>;
+	public var onTouchBegan:TouchEvent -> Void;
+	public var onTouchHover:TouchEvent -> Void;
+	public var onTouchEnded:TouchEvent -> Void;
+	public var onTouchOut:TouchEvent -> Void;
 
 	// didn't use @:isVar public var alpha(get, set):Float = 1; since Actuate doesn't like it.
 	// didn't use default as getter since Actuate doesn't like it.
@@ -65,8 +66,6 @@ class DisplayObject {
 
 	public function new() {
 
-		onTouchBegan = new Signal1<TouchEvent>();
-
 		_initProxy();
 
 		#if flash
@@ -79,12 +78,27 @@ class DisplayObject {
 		proxy = new #if flash starling.display.DisplayObject #elseif js pixi.core.display.DisplayObject #end ();
 	}
 
-	public function addTouchBeganListener() {
+	function _addTouchListeners() {
 
 		#if flash
 			proxy.addEventListener(starling.events.TouchEvent.TOUCH, _starlingTouchEvent);
 		#elseif js
-			proxy.on('mousedown', _pixiOnTouchBegan).on('touchstart', _pixiOnTouchBegan);
+			proxy.on('mousedown', _pixiTouchEvent).on('touchstart', _pixiTouchEvent);
+			proxy.on('mouseover', _pixiTouchEvent);
+			proxy.on('mouseup', _pixiTouchEvent).on('touchend', _pixiTouchEvent).on('mouseupoutside', _pixiTouchEvent).on('touchendoutside', _pixiTouchEvent);
+			proxy.on('mouseout', _pixiTouchEvent);
+		#end
+	}
+
+	function _removeTouchListeners() {
+
+		#if flash
+			proxy.removeEventListener(starling.events.TouchEvent.TOUCH, _starlingTouchEvent);
+		#elseif js
+			proxy.off('mousedown', _pixiTouchEvent).off('touchstart', _pixiTouchEvent);
+			proxy.off('mouseover', _pixiTouchEvent);
+			proxy.off('mouseup', _pixiTouchEvent).off('touchend', _pixiTouchEvent).off('mouseupoutside', _pixiTouchEvent).off('touchendoutside', _pixiTouchEvent);
+			proxy.off('mouseout', _pixiTouchEvent);
 		#end
 	}
 
@@ -93,18 +107,36 @@ class DisplayObject {
 		function _starlingTouchEvent(tEvt:starling.events.TouchEvent) {
 
 			var began = tEvt.getTouch(proxy, starling.events.TouchPhase.BEGAN);
+			var hover = tEvt.getTouch(proxy, starling.events.TouchPhase.HOVER);
+			var ended = tEvt.getTouch(proxy, starling.events.TouchPhase.ENDED);
 
-			if (began != null)
-				onTouchBegan.dispatch({target:this, globalX:began.globalX, globalY:began.globalY});
+			if (onTouchBegan != null && began != null)
+				onTouchBegan({target:this, globalX:began.globalX, globalY:began.globalY});
+
+			if (onTouchHover != null && hover != null)
+				onTouchHover({target:this, globalX:hover.globalX, globalY:hover.globalY});
+
+			if (onTouchEnded != null && ended != null)
+				onTouchEnded({target:this, globalX:ended.globalX, globalY:ended.globalY});
 		}
 
 	#elseif js
 
-		function _pixiOnTouchBegan(tEvt:pixi.interaction.EventTarget) {
+		function _pixiTouchEvent(tEvt:pixi.interaction.EventTarget) {
 
 			tEvt.stopPropagation();
 
-			onTouchBegan.dispatch({target:this, globalX:tEvt.data.global.x, globalY:tEvt.data.global.y});
+			if (onTouchBegan != null && (tEvt.type == 'touchstart' || tEvt.type == 'mousedown'))
+				onTouchBegan({target:this, globalX:tEvt.data.global.x, globalY:tEvt.data.global.y});
+
+			if (onTouchHover != null && tEvt.type == 'mouseover')
+				onTouchHover({target:this, globalX:tEvt.data.global.x, globalY:tEvt.data.global.y});
+
+			if (onTouchEnded != null && (tEvt.type == 'touchend' || tEvt.type == 'touchendoutside' || tEvt.type == 'mouseup' || tEvt.type == 'mouseupoutside'))
+				onTouchEnded({target:this, globalX:tEvt.data.global.x, globalY:tEvt.data.global.y});
+
+			if (onTouchOut != null && tEvt.type == 'mouseout')
+				onTouchOut({target:this, globalX:tEvt.data.global.x, globalY:tEvt.data.global.y});
 		}
 
 	#end
@@ -259,10 +291,15 @@ class DisplayObject {
 		_touchable = value;
 
 		#if flash
-			proxy.touchable = value;
+			proxy.touchable = _touchable;
 		#elseif js
-			proxy.interactive = value;
+			proxy.interactive = _touchable;
 		#end
+
+		if (_touchable)
+			_addTouchListeners();
+		else
+			_removeTouchListeners();
 
 		return _touchable;
 	}

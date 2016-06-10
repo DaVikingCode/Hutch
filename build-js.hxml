@@ -3,7 +3,6 @@
 -cp demo
 -cp src
 -lib actuate
--lib ash
 -lib pixijs
 -debug
 -dce full

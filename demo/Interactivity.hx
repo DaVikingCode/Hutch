@@ -2,6 +2,7 @@ package;
 
 import hutch.core.Scene;
 import hutch.display.Image;
+import hutch.events.TouchEvent;
 
 class Interactivity extends Scene {
 
@@ -21,10 +22,14 @@ class Interactivity extends Scene {
 		var textureButtonDown = Main.assetManager.getTexture("buttonDown.png");
 		var textureButtonOver = Main.assetManager.getTexture("buttonOver.png");
 
-		var btn1 = new Image(textureButton);
+		var btn = new Image(textureButton);
+		btn.useHandCursor = btn.touchable = true;
+		btn.x = btn.y = 200;
+		addChild(btn);
 
-		addChild(btn1);
-
-		haxe.Timer.delay(function() btn1.texture = textureButtonDown, 550);
+		btn.onTouchStart = function(tEvt:TouchEvent) btn.texture = textureButtonDown;
+		btn.onTouchHover = function(tEvt:TouchEvent) btn.texture = textureButtonOver;
+		btn.onTouchEnded = function(tEvt:TouchEvent) btn.texture = textureButton;
+		btn.onTouchOut = function(tEvt:TouchEvent) btn.texture = textureButton;
 	}
 }
