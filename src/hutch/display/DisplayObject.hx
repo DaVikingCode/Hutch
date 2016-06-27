@@ -64,6 +64,10 @@ class DisplayObject {
 	var _y:Float = 0;
 	public var y(get, set):Float;
 
+	#if flash
+		var point_optim = new flash.geom.Point();
+	#end
+
 	public function new() {
 
 		_initProxy();
@@ -122,10 +126,13 @@ class DisplayObject {
 
 			if (onTouchOut != null) {
 
-				if (touch != null)
-					if (proxy.hitTest(proxy.globalToLocal(new flash.geom.Point(touch.globalX, touch.globalY))) == null)
+				if (touch != null) {
+
+					point_optim.setTo(touch.globalX, touch.globalY);
+
+					if (proxy.hitTest(proxy.globalToLocal(point_optim, point_optim)) == null)
 						onTouchOut({target:this, globalX:touch.globalX, globalY:touch.globalY});
-						// could be improved? http://forum.starling-framework.org/topic/touchphasemoved-and-out
+				}
 				
 				if (touch == null)
 					onTouchOut({target:this, globalX:0, globalY:0});
