@@ -39,7 +39,7 @@ class MovieClip extends Image {
 
 		#elseif js
 
-			proxy = new pixi.extras.MovieClip(nativeTextures);
+			proxy = new pixi.extras.AnimatedSprite(nativeTextures);
 			
 			proxy.animationSpeed = _fps;
 
