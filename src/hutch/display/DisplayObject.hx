@@ -141,7 +141,7 @@ class DisplayObject {
 
 	#elseif js
 
-		function _pixiTouchEvent(tEvt:pixi.interaction.EventTarget) {
+		function _pixiTouchEvent(tEvt:pixi.interaction.InteractionEvent) {
 
 			tEvt.stopPropagation();
 
